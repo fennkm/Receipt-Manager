@@ -40,15 +40,20 @@ def extractItems(filepath) -> list[tuple[str, int, int]]:
 
     items = []
 
+    line = ""
+
+    # Jump to start of xml portion
+    while "!DOCTYPE" not in line:
+        line = file.readline()
+
     # Order changes loop
     while True:
         # Jump to next order change or start of receipt
-        line = ""
-        while ("We sent" not in line) and ("Your order" not in line):
+        while ("We Sent" not in line) and ("Your Order" not in line):
             line = file.readline()
 
         # If reached start of receipt, exit loop
-        if "Your order" in line: break
+        if "Your Order" in line: break
 
         # Skip to & extract item name
         skipTags(file, 2)
@@ -62,25 +67,23 @@ def extractItems(filepath) -> list[tuple[str, int, int]]:
             itemName = itemName[:60] + "..."
 
         # Skip to & extract item price
-        skipTags(file, 2)
-        try:
-            itemPrice = extractPrice(file)
-        except:
-            # If the "you still yet your discount" text is added
-            skipTags(file, 11)
-            itemPrice = extractPrice(file)
+        line = file.readline()
+        skipTags(file, 1)
+        itemPrice = extractPrice(file)
 
         items.append((itemName, itemQuantity, itemPrice))
 
     # Jump to end of receipt header
-    line = ""
-    while "Price" not in line:
+    while "price" not in line.lower():
         line = file.readline()
+
+    # Jump to start of items
+    skipTags(file, 1)
 
     # Receipt loop
     while True:
         # Skip to and extract item name
-        skipTags(file, 4)
+        skipTags(file, 2)
         itemName = extractText(file)
 
         # If we reach the end of the receipt, stop
@@ -99,20 +102,19 @@ def extractItems(filepath) -> list[tuple[str, int, int]]:
 
         items.append((itemName, itemQuantity, itemPrice))
 
+        skipTags(file, 2)
+
     file.close()
 
     return items
 
-# Moves file pointer to the line after the next n tags
+# Moves file pointer to the end of the next n tags
 def skipTags(file, n) -> None:
     # Find end of next n tags
     tagCount = 0
     while tagCount < n:
         if file.read(1) == ">":
             tagCount += 1
-
-    # Jump to start of next line
-    file.readline()
 
 # Extracts text up until the start of the next tag, then strips and formats
 def extractText(file) -> str:
@@ -124,7 +126,7 @@ def extractText(file) -> str:
         char = file.read(1)
 
     # Strip junk in item name
-    return text.replace("&amp;", "&").replace(" =09", "").replace(" =20", "").replace("=", "").replace("\n", "").lstrip().rstrip()
+    return text.replace("&amp;", "&").lstrip().rstrip()
 
 # Extracts text up until the start of the next tag, then strips and formats as price
 def extractNum(file) -> int:
@@ -140,7 +142,7 @@ def extractPrice(file) -> int:
     price = extractText(file)
 
     # Convert to price in pence
-    return int(price.replace("C2A3", "").replace(".", ""))
+    return int(price.replace("Â£", "").replace(".", ""))
 
 if __name__ == "__main__":
     main()

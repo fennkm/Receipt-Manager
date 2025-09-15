@@ -1,0 +1,1400 @@
+Received: from MA2P292MB0164.ESPP292.PROD.OUTLOOK.COM (2603:10a6:250:3::14) by
+ MA2P292MB0322.ESPP292.PROD.OUTLOOK.COM with HTTPS; Tue, 5 Aug 2025 07:12:03
+ +0000
+Received: from SI2P153CA0023.APCP153.PROD.OUTLOOK.COM (2603:1096:4:190::6) by
+ MA2P292MB0164.ESPP292.PROD.OUTLOOK.COM (2603:10a6:250:3::14) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9009.13; Tue, 5 Aug 2025 07:12:01 +0000
+Received: from SG2PEPF000B66CC.apcprd03.prod.outlook.com
+ (2603:1096:4:190:cafe::d0) by SI2P153CA0023.outlook.office365.com
+ (2603:1096:4:190::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9031.4 via Frontend Transport; Tue, 5
+ Aug 2025 07:12:00 +0000
+Authentication-Results: spf=pass (sender IP is 159.92.154.139)
+ smtp.mailfrom=bounce.emails.asda.com; dkim=pass (signature was verified)
+ header.d=emails.asda.com;dkim=pass (signature was verified)
+ header.d=s51.y.mc.salesforce.com;dmarc=pass action=none
+ header.from=emails.asda.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of bounce.emails.asda.com
+ designates 159.92.154.139 as permitted sender)
+ receiver=protection.outlook.com; client-ip=159.92.154.139;
+ helo=mta8.emails.asda.com; pr=C
+Received: from mta8.emails.asda.com (159.92.154.139) by
+ SG2PEPF000B66CC.mail.protection.outlook.com (10.167.240.25) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9009.8 via Frontend Transport; Tue, 5 Aug 2025 07:11:59 +0000
+X-IncomingTopHeaderMarker: OriginalChecksum:9E0D3306401AD281D1B484366262ADF6DC899C26D05C1242ACE4DD8C9436C294;UpperCasedChecksum:C9127FDD12B2040F2D11F0C9231819FDB82D01D80CA1D69489CF8A531B231DD5;SizeAsReceived:2095;Count:15
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=51dkim1; d=emails.asda.com;
+ h=From:To:Subject:Date:List-Help:MIME-Version:Message-ID:Content-Type;
+ i=email@emails.asda.com;
+ bh=GbxJTiFDsJeue0L4hUpU+Ze6DE2d39fZrQdUdu1I+JA=;
+ b=3ddJSdXK+8un0CzHBTEGcnVbOiXaSP2R325FEdL8frcfuP+awLRdUAzrQlHeg61Zet8ubmUyQcJ/
+   y6BcJS10pBtaoswnnSsAUqYMptrQag0btqYXoQmWvdBJfKVOyyZACavPYNAkzBOq2tFpMEsdCgvk
+   vjEWEbnVXQqyHVTvcF5hptPZBVqF4hby6tbM8qaEMv/oWzp1KQ8k2WE/erIOtSfi4L+CGzgkiXV9
+   faGm1Ji9OUh3DI1Zv4zt428bmz4IjAtBlV47SqzQEMrKYqy6s3+/W6U9TC1kTLK4TQXy+qp6bdLZ
+   mFTKV+/mBP1JZBjmLmPRB8teHuTcpV9I7SKNJA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=fbldkim51; d=s51.y.mc.salesforce.com;
+ h=From:To:Subject:Date:List-Help:MIME-Version:Message-ID:Content-Type;
+ bh=GbxJTiFDsJeue0L4hUpU+Ze6DE2d39fZrQdUdu1I+JA=;
+ b=wR4NDRPZ/dBIKSYews65FhtlfeFcDWjWBD/mRD9i4+3RY0pk1Arf8bmyEiw5ZiZ4wgSe+2kQn4LD
+   dJGy8YLkdwYnyiq7gEI9xJM+XcKSwB1UgXl5IBwgZdei25mNUodbaxSLRdBQG+az/fCN/TmRnWhu
+   vigggcdVoPSC+AcajgBZO9MSUJbhLjI4Fy198vE+sxN67fA2jsBZaHtJunCmzjrGB6sv9wcURi6m
+   ocajadTrBlvYGDj6mvkDue1uCwbphnqbJM6FoeAdc5DphWU2VFE2t3K1fJGucMNN7gm5gq5T24Tc
+   4OSCSBnsp6PjZMGzgc1eM7AHg60Kf3OVgCcJkw==
+Received: by mta8.emails.asda.com id hi6nbu2fmd4l for <kitanstey@outlook.com>; Tue, 5 Aug 2025 07:11:58 +0000 (envelope-from <bounce-67_HTML-97908904-350293-536001801-1035602@bounce.emails.asda.com>)
+From: "Asda Online Grocery" <email@emails.asda.com>
+To: <kitanstey@outlook.com>
+Subject: Order Receipt
+Date: Tue, 05 Aug 2025 01:11:54 -0600
+List-Help: <https://click.emails.asda.com/subscription_center.aspx?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtaWQiOiI1MzYwMDE4MDEiLCJzIjoiOTc5MDg5MDQiLCJsaWQiOiI2NyIsImoiOiIzNTAyOTMiLCJqYiI6IjEwMzU2MDIiLCJkIjoiNTEwMDAyIn0.lcxOQWpai-7vAU3-K_gZzvBeZjLj7S0PqjoaNMJXZrw>
+x-messageKey: 16da9f92-5299-4b90-acb9-7a3010613165
+X-Delivery: Transactional
+X-SFMC-Stack: 51
+x-job: 536001801_350293
+Message-ID: <eb4a3d6d-945d-4886-a5e5-42648137912c@cdg3s51mta187.xt.local>
+Content-Type: multipart/alternative;
+	boundary="LPWa8mAdColu=_?:"
+X-IncomingHeaderCount: 15
+Return-Path: bounce-67_HTML-97908904-350293-536001801-1035602@bounce.emails.asda.com
+X-MS-Exchange-Organization-ExpirationStartTime: 05 Aug 2025 07:11:59.9598
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: c1522209-9fb6-4f1a-4041-08ddd3ef5eeb
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CC:EE_|MA2P292MB0164:EE_|MA2P292MB0322:EE_
+X-MS-Exchange-Organization-AuthSource: SG2PEPF000B66CC.apcprd03.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 8/5/2025 5:02:08 AM
+X-MS-Office365-Filtering-Correlation-Id: c1522209-9fb6-4f1a-4041-08ddd3ef5eeb
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 159.92.154.139
+X-SID-PRA: EMAIL@EMAILS.ASDA.COM
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:4;ARA:1444111002|10300799035|47200799021|9000799050|58200799018|12005499003|21080799006|68400799013|3151999006|28045499009|461199028|1680799057|9400799033|8011999015|4141999021|6111999015|440099028|4302099013|3412199025|26104999006|18021999003|22062799003|21101999018|1122599019|1602099012|1370799030|1360799030|1380799030|56899033;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2025 07:11:59.3020
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c1522209-9fb6-4f1a-4041-08ddd3ef5eeb
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CC.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA2P292MB0164
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:04.2332729
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.9009.009
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:I;ENG:(5062000311)(920221119095)(90000117)(920221120095)(90010023)(91010020)(91040095)(9050020)(9100341)(944500132)(2008001181)(4810010)(4910033)(9575002)(10195002)(9320005)(120001)(1110175);
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MTtHRD0xO1NDTD0z
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?Wnc0UVNoMVRwb1dOZklwUEZiRjlxQlVFUm5Jazd0YVJydWcwQ3ZQazgvbU5I?=
+ =?utf-8?B?ckppbHJ0dVFBU3UrWmdoMkllQlArU1ZQQkd6WkZucFJoLzlaUStrV1FsMTM2?=
+ =?utf-8?B?RUp5UFJtL0ZYbVZVaENsZmluME1MVTZmU3djQ2ZGVVFDVDBmYVdRTTZXVitk?=
+ =?utf-8?B?YUd2bEpSRDNYTDFLVmxGVElmbzJELzVHaU9XS0RLQ1RESDhGOHd1OTFHOS8r?=
+ =?utf-8?B?QjlZeDRMcWRyZHUzbWt2WDdoL3EzbG5mRm9VZFJUdW56b3dDaVBBVG14aENw?=
+ =?utf-8?B?U0FYUktTQm5veHcxZ0RBMENsNmZrSDhTazZSK0MrOE1vNjFSMWdoM0pXYWlo?=
+ =?utf-8?B?cVJlZTFpaGYrNEtxRXRud3pEZDd3NXpBRytpZXVhTGxxbDEwemhFSVFTeGNk?=
+ =?utf-8?B?dU1qWHRBYml0cEkzcjdJYURlLzFQUnRDbVNVY3lTS2tueHRzaHFLYlNwdndI?=
+ =?utf-8?B?YlpEYVMzTE0yYzJ6KzJOYnFLZUwwbEY4ck5tRzFVMCtLME5oV2toZ3BkTWJR?=
+ =?utf-8?B?a1RCMGFDYnNqUzFhbG5mekJsak9uVTJsb09WMFNYajNtR1dTaHAzWTR1endI?=
+ =?utf-8?B?TW1OMHhkS2dHUjg1ck5mVTMwL2QxQkpkNWNDamFac3ZFVWQzckpIOFJPOGV6?=
+ =?utf-8?B?aHJXckIyNlNVS00vOFVDWlQzeGZNRW5UVEZldFR5M1hWSSt3VGJtbEhldHUr?=
+ =?utf-8?B?c3lMNER3UTBRbXNOZktiWjhmUGFqOVBIT2pOU3NhQTVTYTBnbjF2aVBIOGZi?=
+ =?utf-8?B?RFczQmpWRGZwZHZyU0tmSVpIZnNQSUtuejN5NFd3TjBTbktrTGZMWGRWT0sz?=
+ =?utf-8?B?VW45ZHRDZEM0aE4vblJTVUZwekVGYmVOTVM2SUM5blhyUkNraDRZZ2xXM0ZR?=
+ =?utf-8?B?eExzUytIdHRRcW1WRjFJRG5KLzRQcFR5dTFjbFBPaTZVZTFzZ09aWDNpdUdz?=
+ =?utf-8?B?MzBzN2ppRG5mZkowVmdjNlVvaDNNZnorV0xTOWNKL1lXT0lZNjB5ck1vN2Fy?=
+ =?utf-8?B?dlZtdnVxNm5VOExRMU96UlhWamR0L3lvYWJtRlZjU1Q0bjNiaTVFU25sZHZL?=
+ =?utf-8?B?VWRNRUVNcWRwTnNXNkxwOTJYVCt3QmE2b2pZN0E0b1V6K2J4SXREaFBjVE02?=
+ =?utf-8?B?RWRzSk9JQ0MzQmtsOXB6UGJHL2RJZUdXYldWcnhRYVQzQWZQU21wR1ovNXpQ?=
+ =?utf-8?B?NXc2bmJoV1A2MFk2RmkyTHg1eHdFVEpFbksrejl3L2VOREFFZFF5ejY5QnYy?=
+ =?utf-8?B?ZlhtczNXejJNQXlGWGd5MU5FYW5LMHZQRWgwWlVVZURxVXRmOWRJSmFYNVRa?=
+ =?utf-8?B?WW5pS1lzN3R4NXo1MmthcCtyelkxdmtqRDB3NVora3EvSzhFUi9oQWNUY0U0?=
+ =?utf-8?B?UCttL3RXemNlTWRTSjhOblpkMUtPZG9uakZZTHgvTzloQy92SDJXdmMwK0ts?=
+ =?utf-8?B?R2U2Zlc5engvNU10QWNORlBlQW1OTTFTanR2MFJvLzJnaCtwVVZiWGdEaEpK?=
+ =?utf-8?B?SFhEbURzODZxQzJZOEFQRHVPR2Q3ekhXWEQrRnovdHRqdTdmK0diaDdUWmk0?=
+ =?utf-8?B?bW1qNU5YTkFhZjIzQUZmR3dPNXVsQUx0ekRLYkZRcStDU3liSW50ZlhjSHpI?=
+ =?utf-8?B?SmEvTmo3TGVDVXk0WXVkbHE1cGNZeUJJck16UEFTeHQ5bmU3TW5rYjB4Mi9U?=
+ =?utf-8?B?RUF0QzdiMDFQZ1FVRTVtSHZCQ1FzTUh0Mjl3ekZFVDl5dHUzZGtLejJOdFNF?=
+ =?utf-8?B?cXk0MlJRbkUzYmNrZGM1SzB5eUlleTdoNXIrUkZubzZFYkE4OU9QNTJvUGlr?=
+ =?utf-8?B?MVJRUFNOaERyYmJlWktVdSs2alRMOGtaY0hsOWx3akRGRE53MWg3TmZja1RU?=
+ =?utf-8?B?eXBUYi96Z25JbDFySTRYcmVOMmZFclg2TENxWnNBekhIWEdZMFR4ck9BUzV5?=
+ =?utf-8?B?czI1RzVYZDJjYksxL1NFSkZkdzdLNTh4YURYVGNsZnM3Y2dWZmpqcXQraCtN?=
+ =?utf-8?B?YktrZmVCZ2FQRDE5RkdWSmhta2NuNXNObDhnTjFRS2xkU2ZRWWtGdUVlQUly?=
+ =?utf-8?B?MnJWeU9GT29BcEtURXRubzNNMi95dy9qNU9QOG9OQjlQTEU4d2ZnUVJKZnJM?=
+ =?utf-8?B?YXoreEJpMUpBY25DcnhCVEtBUEs4eXZsdTVURHZpUG5XMjRqN2hzZXo5d21h?=
+ =?utf-8?B?OFJ5bTU3TU1Wb20zUC9UT3phcC9mdzFkTmkxdU1GSVNJUnkwMVJZTzR2Y2h4?=
+ =?utf-8?B?WjVNemdIcU12d1JJb3FwWU84ZWlhUFgvcGFEM3k3NW4weFVsZnRHL1ZrclEw?=
+ =?utf-8?B?RE9aSllRYmpoNHVyN09mT3hqOGhFTW1mbVlEaHNxRGRlR3dzQmdUdUNlenVu?=
+ =?utf-8?B?eUwrTkJjaTl0OEYrMG5HejhSeXMwWk9Ud2N6WHNyQjkzTVBabUwyNnV4SHVo?=
+ =?utf-8?B?K0RRWCtKajZQMUE2Mm5CK2pqd1VtR0J4SU9NczluKzR4VjlSQjIzYTI3RzZQ?=
+ =?utf-8?B?OUZpQXVVQmx1ZC8vTFd6ZGprR0x5UDhoclZ4T2VvYmE5Rld6RmEvRVkwSWkv?=
+ =?utf-8?B?VDlrRm5mZ0pPVnlUR1U2ZVBhT0tJUFd0M1FTdnp4OHZTZVRIVmQvTTJsVzZ2?=
+ =?utf-8?B?RXF1Z1BmakgrcVF1eTlMNitWcVpMSHJjeTRqbGdMYlk5SDAxM3I2dzZwUk9N?=
+ =?utf-8?B?MUcycVpadXd1SlVtckRyRDdTemFxUHFpNnQ3K3dJd1RpMzhuWFBKNTBueUt2?=
+ =?utf-8?B?UFZ3NnNYMHBwYm5uYStGeGRJbXVSbEdVQktlVWkwSDczNEtRSUh3ZlZCMEtX?=
+ =?utf-8?B?eHpCVEx6b0R1WmpWS0E3azVBbzZxaGkyTlBBQUlESU5vMkFHenc1NkFhKzl6?=
+ =?utf-8?B?WmVzQmNNaDVLSnMvOGF3Tmt6RHpvQllCYkVIWi9RRjBxT01QTlNXWHh3c2Nn?=
+ =?utf-8?B?Zlk5M3RSOC9TWHo5ZlNUSzF3aU9yb1J5TzVqWWw4QnJkYUlCdjNCT2pFQTI5?=
+ =?utf-8?B?S0Ftd2oyaXNOQ3hHMEhLYkVXdmZ1NFlHd0NLVlFRbnQxVzFCVTdybytrdnox?=
+ =?utf-8?B?czY4Si9NOGlTbHhwc2VIaHJXUXZiR3lxZzg3SlpoRjQvMnE2UUJiaVowMXJJ?=
+ =?utf-8?Q?t3ebDp6X0?=
+MIME-Version: 1.0
+
+--LPWa8mAdColu=_?:
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+
+ 
+ 
+
+ 
+
+
+
+
+
+
+ 
+To view this email as a web page, click 
+https://click.emails.asda.com/?qs=7f84168cf3319126144e7f3360e4e737bf410dc9c9528e526ea0149626cf451a59b3f0f1ad606bf451ff7494e70802600d095add2800e1d1813fbd1f632ca3be 
+here. 
+ 
+
+
+https://click.emails.asda.com/?qs=7f84168cf3319126015ad0278fc32b77d51eb99b5d7cbb9e1e5d367b84281db3dcf57f9b5b8248687ce39c40b78a414814fabdec4bd3dab0f111b7a0476bfca8 
+
+ 
+
+ Order 7000003901303
+ 
+ 
+
+ Tuesday, 5 August, 10:00 AM-11:00 AM
+ 
+
+ 19 Home Farm Crescent, Whitnash, Leamington Spa, GB, CV312QW
+
+ 
+
+
+ 
+ 
+ £64.85
+ 
+
+We quality check our 
+ 
+https://click.emails.asda.com/?qs=7f84168cf3319126d613da5112f6c695299c84bd0616dc033c9e68e5521a326d9ac23304b1f6619dcba86cef8f4c8c6c762262629c7dfc1e75e32c71f6ec3fc5 
+fresh produce
+
+ If there is a problem with any of the items you get, hand them back. We will not charge you for those items.
+Or ask for a refund online within 5 days of your order. 
+
+
+
+
+https://click.emails.asda.com/?qs=7f84168cf331912652d68a59ea88243edc7670a490427fa3d940c9904b7ea5a04b34c335992fd818c94d7052c96f83409c08a8044d36a4517218dfeacd735338 
+Track your order 
+
+	- Bring your bags to help us reduce plastic.
+	- Paid with a gift card? Keep it safe until you get your order.
+
+
+ 
+
+Remember to have your ID handy
+	- We can only hand your order to someone aged 18 or over, so we may ask for proof of age. 
+	- We also need to see proof of age for any age restricted products in your order, like alcohol. 
+
+ Everything ok with your order? Hand back anything you do not want or leave it in the locker. We will not charge you for those items. Or ask for a refund online within 5 days of your order. 
+ 
+
+Changes to your order
+
+
+ 
+ We only charge you for the items we send. We never charge you more for a substitute, even when the substitute is more expensive.
+
+
+ 
+
+
+ 
+ 
+  
+You ordered 1 X ASDA Free From Choco Squares £1.95
+ 
+
+
+
+We Sent1 X ASDA FF CHOCO SNAPS  300G
+ &#10003;You still get your discount£1.74
+ 
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+ Your Order
+
+
+
+
+  
+OthersQuantityprice
+
+
+ 
+
+ASDA Mild & Versatile White Mushrooms   1£0.88  
+
+ 
+
+ASDA Whole Cucumber   1£0.89  
+
+ 
+
+ASDA 6 Large Free Range Eggs   1£2.00  
+
+ 
+
+Alpro Soya No Sugars Long Life Drink   2£3.76  
+
+ 
+
+ASDA Butcher's Selection Beef Mince (Typically Less Than 20% Fat)   2£6.56  
+
+ 
+
+ASDA Red Pepper   3£2.07  
+
+ 
+
+The BAKERY at ASDA 8 White Wraps 488g   2£2.36  
+
+ 
+
+Grana Padano Grated Grana Padano Cheese 100g   1£2.16  
+
+ 
+
+ASDA Special Flakes Cereal   1£1.84  
+
+ 
+
+ASDA 2 Garlic & Coriander Naans   1£0.80  
+
+ 
+
+ASDA Chicken Tikka Masala with Pilau Rice   2£3.88  
+
+ 
+
+ASDA Chopped Tomatoes 400g   1£0.49  
+
+ 
+
+ASDA Sweet & Juicy Royal Gala Apples   1£1.67  
+
+ 
+
+ASDA 3 Sweet & Crunchy Red Onions   1£0.95  
+
+ 
+
+ASDA Lightly Salted Tortilla Chips 180g   1£0.99  
+
+ 
+
+Goodfella's Takeaway Loaded Pepperoni 524g   1£2.74  
+
+ 
+
+JUST ESSENTIALS by ASDA 10 Breaded Cod Fishcakes 500g   1£2.00  
+
+ 
+
+ASDA Natural Yogurt 500g   2£2.16  
+
+ 
+
+ASDA Cherry Cola Zero   1£0.49  
+
+ 
+
+ASDA Tender Chicken Breast Portions 300G   2£4.48  
+
+ 
+
+ASDA Black Pepper Dry Cured Ham 120g   1£2.14  
+
+ 
+
+ASDA Garden Gang 7 Brilliant Bananas (Colour may vary)   1£0.88  
+
+ 
+
+Nicky Ultra Paper Towel Larger Sheets   1£1.50  
+
+ 
+
+Always Soft Like Cotton Normal Panty Liners, 0% Perfume, 18 Count   1£0.98  
+
+ 
+
+ASDA Multivitamins Wellbeing Tablets   1£2.48  
+
+ 
+
+Old El Paso Mexican Refried Beans   1£2.34  
+
+ 
+
+ASDA Conchiglie 500g   1£0.75  
+
+ 
+
+COOK by ASDA Thyme 17g   1£1.00  
+
+ 
+
+ASDA British Milk Semi Skimmed 1 Pint   1£0.85  
+
+ 
+
+ASDA Risotto Arborio Rice 500g   1£2.40  
+
+ 
+
+Birds Eye Petits Pois 545g   1£2.64  
+
+ 
+
+Pepsi Max No Sugar Cola Bottle 2L   1£1.98  
+
+ 
+
+ASDA FF CHOCO SNAPS  300G   1£1.74  
+
+
+ 
+
+
+ 
+
+
+
+ 
+ 
+
+
+ 
+Groceries £64.85
+
+
+
+ 
+Pick & pack* £0.00
+
+
+
+ 
+
+
+Donate to charity £0.00
+
+
+
+ 
+
+
+
+Multibuy ( items) -£0.00
+
+
+  
+
+ 
+
+eVoucher savings  -£0.00
+
+ 
+
+
+Gift cards** -£0.00
+
+ 
+
+
+
+ 
+Asda Rewards Voucher 
+
+ -£0.00
+
+ 
+
+
+ 
+Discounted for you Savings  -£0.00
+
+ 
+ 
+
+ 
+Free sample Savings  -£0.00
+
+ 
+ 
+
+ 
+ 
+ 
+Order total £64.85
+
+ 
+ 
+
+
+
+https://click.emails.asda.com/?qs=7f84168cf33191269219ce0166fb0c53dcaff8f13c43ff2cc0bfada24629e7f3e5b6dcbef91a19cb6181ca359d54e3b62d3f1d36fac61781fae9d1226c9bf7ee 
+When we charge you
+
+We charge you on the day of your order. 
+
+Have money in your account the day before so we can set up payment.
+
+Your order total is likely to change due to product availability and the exact weight of your fresh food. 
+
+If your total does change you may see several charges or refunds go through - this is normal 
+
+
+Payment details
+
+ 
+ 
+ 
+ 
+ ************1277
+ 
+ 
+ 
+
+ 
+  *Exact price depends on weight of available items
+
+
+
+
+https://click.emails.asda.com/?qs=7f84168cf331912652d68a59ea88243edc7670a490427fa3d940c9904b7ea5a04b34c335992fd818c94d7052c96f83409c08a8044d36a4517218dfeacd735338 
+View order online 
+
+
+ Thanks
+
+ Asda
+ 
+► 
+https://click.emails.asda.com/?qs=7f84168cf3319126d32b6019076a3ef2fccfb1c700b391023a5e6f1a5552ad5680bd4bf7f90a944ac83297f8d692e9fba4a74088c66ee47f1a4a3e2c57ce0c66 
+Help Centre 
+
+Please do not reply to this email.
+
+
+
+ This is a service message from Asda Stores Ltd, Registered in England No. 00464777.
+
+ Registered Office: Asda House, Southbank, Great Wilson Street, Leeds LS11 5AD 
+ 
+ 
+
+
+ This email and any files transmitted with it are confidential and intended solely for the individual or entity to whom they are addressed. If you have received this email in error please accept our apologies & destroy it immediately.
+ 
+
+
+
+
+
+
+
+
+
+  © ASDA 2025
+
+https://click.emails.asda.com/?qs=7f84168cf3319126a275f88fc7e797e8ad0da5391bc1dc77b87a0a45ddedbd986fc5a60dac6d39d4d9e8503d4998192286c47e9cc7013d1acd30084c7de8eeff 
+ Terms & Conditions  -
+https://click.emails.asda.com/?qs=7f84168cf33191268025efd027d528e9816f51a33a250d873aa9268b258798694b0d26a7e6b088c12f8f5307d924f4e0bd9627f262df00801b132d1dd5d540d7 
+Privacy and Cookies Policy 
+
+
+ 
+ 
+
+
+ 
+ 
+
+
+--LPWa8mAdColu=_?:
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style type="text/css">
+      ReadMsgBody{ width: 100%;}
+      .ExternalClass {width: 100%;}
+      .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+      body {-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;margin:0 !important;}
+      p { margin: 1em 0;}
+      table td { border-collapse: collapse;}
+      img {outline:0;}
+      a img {border:none;}
+      @-ms-viewport{ width: device-width;}
+    </style>
+    <style type="text/css">
+      @media only screen and (max-width: 480px) {
+        .container {width: 100% !important;}
+        .footer { width:auto !important; margin-left:0; }
+        .mobile-hidden { display:none !important; }
+        .logo { display:block !important; padding:0 !important; }
+        img { max-width:100% !important; height:auto !important; max-height:auto !important;}
+        .header img{max-width:100% !important;height:auto !important; max-height:auto !important;}
+        .photo img { width:100% !important; max-width:100% !important; height:auto !important;}
+        .drop { display:block !important; width: 100% !important; float:left; clear:both;}
+        .footerlogo { display:block !important; width: 100% !important; padding-top:15px; float:left; clear:both;}
+        .nav4, .nav5, .nav6 { display: none !important; }
+        .tableBlock {width:100% !important;}
+        .responsive-td {width:100% !important; display:block !important; padding:0 !important; }
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        /* MOBILE GLOBAL STYLES - DO NOT CHANGE */
+        body { padding: 0px !important; font-size: 16px !important; line-height: 150% !important;}
+        h1 { font-size: 22px !important; line-height: normal !important;}
+        h2 { font-size: 20px !important; line-height: normal !important;}
+        h3 { font-size: 18px !important; line-height: normal !important;}
+        .buttonstyles {
+          font-family:arial,helvetica,sans-serif !important;
+          font-size: 16px !important;
+          color: #FFFFFF !important;
+          padding: 10px !important;
+        }
+        /* END OF MOBILE GLOBAL STYLES - DO NOT CHANGE */
+      }
+      @media only screen and (max-width: 640px) {
+        .container { width:100% !important; }
+        .mobile-hidden { display:none !important; }
+        .logo { display:block !important; padding:0 !important; }
+        .photo img { width:100% !important; height:auto !important;}
+        .nav5, .nav6 { display: none !important;}
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+      }
+    </style>
+
+  </head>
+  <body bgcolor="#ffffff" text="#000000" style="background-color: #ffffff; color: #000000; padding: 0px; -webkit-text-size-adjust:none; font-size: 16px; font-family:arial,helvetica,sans-serif;">
+    <div style="font-size:0; line-height:0;"><img src="https://click.emails.asda.com/open.aspx?ffcb10-fec9177575660d7e-fe2c157674660574731273-fe3711737364047c7d1471-ff921277-fe511d777c640c747510-fe9e15707661027d77&amp;d=510002&amp;bmt=0" width="1" height="1" alt=""></div>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+      <tr>
+        <td align="center" valign="top">
+          
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <table cellspacing="0" cellpadding="0" border="0" width="600" class="container" align="center">
+            <tr>
+              <td>
+                <table class="tb_properties border_style" style="background-color:#FFFFFF;" cellspacing="0" cellpadding="0" bgcolor="#ffffff" width="100%">
+                  <tr>
+                    <td align="center" valign="top">
+                      <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                          <!-- added padding here -->
+                          <td class="content_padding" style="">
+                            <!-- end of comment -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                              <tr> <!-- top slot -->
+                                <td align="center" class="header" valign="top">
+                                  <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tbody>
+                                        <tr>
+                                          <td align="left" valign="top">
+                                            <table cellspacing="0" cellpadding="0" style="width:100%">
+                                              <tbody>
+                                              <tr>
+                                                <td class="responsive-td" valign="top" style="width: 100%;">
+                                                  
+
+
+
+
+
+
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 20px 20px 0px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; border-top: 20px solid #E4E4E4; border-right: 20px solid #E4E4E4; border-bottom: 0px; border-left: 20px solid #E4E4E4; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><table width="100%" cellspacing="0" cellpadding="0" role="presentation">
+  <tr><td>&nbsp;</td></tr>
+  <tr>
+  <td style="font-family:helvetica;font-size:13px;text-align:center">To view this email as a web page, click <a href="https://esp01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.emails.asda.com%2F%3Fqs%3D7f84168cf3319126144e7f3360e4e737bf410dc9c9528e526ea0149626cf451a59b3f0f1ad606bf451ff7494e70802600d095add2800e1d1813fbd1f632ca3be&amp;data=05%7C02%7C%7Cc15222099fb64f1a404108ddd3ef5eeb%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638899747238312576%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=I2iszVnINOSFcR0MRIrKAy%2BswcUt5neVDC%2FbDwp8J7o%3D&amp;reserved=0" originalsrc="https://click.emails.asda.com/?qs=7f84168cf3319126144e7f3360e4e737bf410dc9c9528e526ea0149626cf451a59b3f0f1ad606bf451ff7494e70802600d095add2800e1d1813fbd1f632ca3be" target="_blank">here.</a></td>
+  </tr>
+  <tr><td>&nbsp;</td></tr>
+  <tr><td align="left"><img data-assetid="128388" src="https://image.emails.asda.com/lib/fe3711737364047c7d1471/m/1/ccdac188-3432-4d39-b4f3-f9f6e97d90f0.jpg" alt="" width="900" style="display: block; padding: 0px; text-align: left; width:100%;border: 0px;"></td></tr></table></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 0px 20px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; border-top: 0px; border-right: 20px solid #E4E4E4; border-bottom: 0px; border-left: 20px solid #E4E4E4; " class="stylingblock-content-wrapper"><tr><td style="padding: 20px 20px 20px 5px; " class="stylingblock-content-wrapper camarker-inner"><style>
+.logo{
+  margin-bottom:1rem;
+  }
+</style>
+
+<div class="logo">
+ <a target="_blank" href="https://esp01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.emails.asda.com%2F%3Fqs%3D7f84168cf3319126015ad0278fc32b77d51eb99b5d7cbb9e1e5d367b84281db3dcf57f9b5b8248687ce39c40b78a414814fabdec4bd3dab0f111b7a0476bfca8&amp;data=05%7C02%7C%7Cc15222099fb64f1a404108ddd3ef5eeb%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638899747238336606%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=XQvAUmFNBdWzAijb7Q7owzVfG3z7S%2Bb%2FZ4vuHaCQ3j8%3D&amp;reserved=0" originalsrc="https://click.emails.asda.com/?qs=7f84168cf3319126015ad0278fc32b77d51eb99b5d7cbb9e1e5d367b84281db3dcf57f9b5b8248687ce39c40b78a414814fabdec4bd3dab0f111b7a0476bfca8"><img src="https://image.emails.asda.com/lib/fe3711737364047c7d1471/m/1/4a9913b3-af6d-47e2-abf2-65595a040f9e.jpg" alt="Asda logo" width="100"></a> 
+</div></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 0px 20px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; border-top: 0px; border-right: 20px solid #E4E4E4; border-bottom: 0px; border-left: 20px solid #E4E4E4; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px 0px 10px 5px; " class="stylingblock-content-wrapper camarker-inner">
+<table border="0" cellpadding="5" cellspacing="0" style=" font-family: Helvetica; font-size:13.5px; line-height:19px;">
+   <tr>
+     <td>
+       <img src="https://image.emails.asda.com/lib/fe3711737364047c7d1471/m/1/13d554a2-2f6d-4a3a-830a-0b1f573932d4.jpg" alt="" width="50" style="width:50px" class="images">
+       
+     </td>
+     <td>  
+
+         Order 7000003901303
+      
+     </td>
+  </tr>
+<tr>
+     <td>
+       <img src="https://image.emails.asda.com/lib/fe3711737364047c7d1471/m/1/20467b0c-3d36-4b4a-90ba-c716d7094989.jpg" alt="" class="images" width="50" style="width:50px">   
+     </td>
+     <td>
+    Tuesday, 5 August, 10:00 AM-11:00 AM
+     </td>
+  </tr>
+  <tr>
+     <td>
+       <img src="https://image.emails.asda.com/lib/fe3711737364047c7d1471/m/1/7d0d7bed-779b-44e3-90c8-3b8a35bf8803.png" alt="" class="images" width="50" style="width:50px"> 
+     </td>
+     <td>
+     19 Home Farm Crescent, Whitnash, Leamington Spa, GB, CV312QW
+
+     </td>
+  </tr>
+
+ 
+   <tr>
+     <td>
+       <img src="https://image.emails.asda.com/lib/fe3711737364047c7d1471/m/1/8fd98a4d-50b7-40bc-aca8-bda099ab7ca6.jpg" alt="" class="images" width="50" style="width:50px"> 
+     </td>
+     <td>
+     £64.85
+     </td>
+  </tr>  
+</table>
+
+</td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 0px 20px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; border-top: 0px; border-right: 20px solid #E4E4E4; border-bottom: 0px; border-left: 20px solid #E4E4E4; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px 5px 0px 10px; " class="stylingblock-content-wrapper camarker-inner">
+
+<table id="table1" style="border: 1px solid black;   width: 100%;   font-size:13.5px;">  
+<tr>
+<td style="width:100px;padding:8px">
+  <img src="https://image.emails.asda.com/lib/fe3711737364047c7d1471/m/1/aa94922b-78fa-45bd-8b2a-a65411578e00.jpg" alt="" width="100" style="width:100%"> 
+  </td> 
+
+    <td align="left" style="font-family:Helvetica;font-size:0.8rem">We quality check our 
+      <a href="https://esp01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.emails.asda.com%2F%3Fqs%3D7f84168cf3319126d613da5112f6c695299c84bd0616dc033c9e68e5521a326d9ac23304b1f6619dcba86cef8f4c8c6c762262629c7dfc1e75e32c71f6ec3fc5&amp;data=05%7C02%7C%7Cc15222099fb64f1a404108ddd3ef5eeb%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638899747238347517%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=TuAeGygnDRhjOMKPlMrYQmBFjrggEiw%2Fos93K%2F%2BNtco%3D&amp;reserved=0" originalsrc="https://click.emails.asda.com/?qs=7f84168cf3319126d613da5112f6c695299c84bd0616dc033c9e68e5521a326d9ac23304b1f6619dcba86cef8f4c8c6c762262629c7dfc1e75e32c71f6ec3fc5" style="font-weight:bold;color:#38ACEC">  <b><u>fresh produce</u></b>
+      </a>
+      
+    </td>
+  <td></td>
+  </tr>
+
+</table>
+<br>
+<table id="table2" style="border: 1px solid black;   width: 100%; font-size:13.5px;border-left:10px solid #38acec">
+
+<tr>
+<td style="width:30px;padding:5px;">
+  <img src="https://image.emails.asda.com/lib/fe3711737364047c7d1471/m/1/0d854a7c-cdb5-495b-ac37-0a77682877d2.jpg" width="30" style="width:100%"> 
+  </td> 
+   <td style="font-family:Helvetica" align="left"> If there is a problem with any of the items you get, hand them back. We will not charge you for those items.
+Or ask for a refund online within 5 days of your order. </td>
+  </tr>
+</table>
+<br></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 0px 20px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; border-top: 0px; border-right: 20px solid #E4E4E4; border-bottom: 0px; border-left: 20px solid #E4E4E4; " class="stylingblock-content-wrapper"><tr><td style="padding: 5px 5px 5px 10px; " class="stylingblock-content-wrapper camarker-inner"><!--[if gte mso 16]>     
+<style>         .keep-white { mso-style-textfill-type:gradient;             mso-style-textfill-fill-gradientfill-stoplist:"0 \#FFFFFF 0 100000\,100000 \#FFFFFF 0 100000";             color:#000000 !important; }     </style> <![endif]-->
+
+
+<table cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
+                                       <tr>
+                                         <td>
+
+  
+
+<table cellpadding="0" cellspacing="0" width="100%" style="padding-right:10px;border-collapse: collapse;border: 1px solid black;border-bottom:1px solid black;">
+
+<tr>
+    <td>
+<table cellpadding="0" cellspacing="0" width="100%" class="changeinnerproducttable">
+                                        
+                                        <tr><td style="padding-left:24px;padding-top:16px;display:block;padding-right:16px;" align="left" valign="top">
+  <div><!--[if mso]>   <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://esp01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.asda.com%2Faccount%2Forders%2Fdetail%2F7000003901303&amp;data=05%7C02%7C%7Cc15222099fb64f1a404108ddd3ef5eeb%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638899747238361323%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=Plkbho26eJc%2BhJLr7zCmIrU4OiVJ3AcommcsvlYZCQw%3D&amp;reserved=0" originalSrc="https://www.asda.com/account/orders/detail/7000003901303" style="height:40px;v-text-anchor:middle;width:300px;" stroke="f" fillcolor="#68a51c" class="keep-white">     <w:anchorlock/>     <center>   <![endif]-->
+      <a href="https://esp01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.emails.asda.com%2F%3Fqs%3D7f84168cf331912652d68a59ea88243edc7670a490427fa3d940c9904b7ea5a04b34c335992fd818c94d7052c96f83409c08a8044d36a4517218dfeacd735338&amp;data=05%7C02%7C%7Cc15222099fb64f1a404108ddd3ef5eeb%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638899747238374583%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=XJzbzuhKsauV0SOGrJKZnmgbcvtOMFp4os0mKHTLALM%3D&amp;reserved=0" originalsrc="https://click.emails.asda.com/?qs=7f84168cf331912652d68a59ea88243edc7670a490427fa3d940c9904b7ea5a04b34c335992fd818c94d7052c96f83409c08a8044d36a4517218dfeacd735338" style="background-color:#68a51c;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:40px;text-align:center;text-decoration:none;width:300px;-webkit-text-size-adjust:none;" class="keep-white">Track your order</a>
+  <!--[if mso]>     </center>   </v:rect> <![endif]--></div>
+</td></tr>
+                                        <tr>
+                                            <td style="padding-left: 16px;padding-right:24px;padding-bottom:24px;margin: 0;vertical-align: text-top">
+                                                <ul style="list-style: disc;margin-top:20px">
+                                                    <li style="font-size: 20px"> <span style="font-family: Helvetica;font-size: 14px;                                                      font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.64;letter-spacing: 0.2px;                                                      color: #3d3d3d;">Bring your bags to help us reduce plastic.</span>
+                                                    </li>
+                                                    <li style="font-size: 20px"> <span style="font-family: Helvetica;font-size: 14px;                                                      font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.64;letter-spacing: 0.2px;                                                      color: #3d3d3d;">Paid with a gift card? Keep it safe until you get your order.</span>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        
+                                    </table>
+
+                                </td>
+                            </tr>
+
+                                    </table>
+
+</td></tr></table></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 0px 20px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; border-top: 0px; border-right: 20px solid #E4E4E4; border-bottom: 0px; border-left: 20px solid #E4E4E4; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px 5px 5px 10px; " class="stylingblock-content-wrapper camarker-inner"><!--[if gte mso 16]>     
+<style>         .keep-white { mso-style-textfill-type:gradient;             mso-style-textfill-fill-gradientfill-stoplist:"0 \#FFFFFF 0 100000\,100000 \#FFFFFF 0 100000";             color:#000000 !important; }     </style> <![endif]-->
+
+
+
+<div style="border: 1px solid white;">
+<div style="border: 1px solid black;    font-size:13.5px;font-family:Helvetica;padding-top:10px">
+
+    <div style="font-size:13.5px; font-weight: bold;margin-left: 15px;font-family:Helvetica">Remember to have your ID handy</div>
+    
+   <ul style="font-family:Helvetica">
+    <li>We can only hand your order to someone aged 18 or over, so we may ask for proof of age. </li>
+    <li>We also need to see proof of age for any age restricted products in your order, like alcohol.  </li>
+ 
+  </ul>
+  <div style="background-color:#F7CC00;font-size:13.5px;font-family:Helvetica;padding:5px">
+
+    Everything ok with your order? Hand back anything you do not want or leave it in the locker. We will not charge you for those items. Or ask for a refund online within 5 days of your order.   
+          </div>
+
+</div>
+</div>
+<br>
+
+
+
+
+
+
+
+<div style="    font-size:13.5px;font-family:Helvetica;padding-top:10px">
+<b>Changes to your order</b><br><br>
+  
+  We only charge you for the items we send. We never charge you more for a substitute, even when the substitute is more expensive.<br><br>
+  
+
+<table style="width:100%;font-family:Helvetica;font-size:13.5px;" cellspacing="0" border="0" cellpadding="0">
+ 
+  
+    <tr>
+    <td>&nbsp;</td>
+    </tr>
+
+  <tr>
+    <td valign="top">You ordered </td>
+    <td valign="top">1 X ASDA Free From Choco Squares </td>
+    <td valign="top" style="text-decoration:line-through;">£1.95</td>
+    </tr>
+     <tr>
+    <td>&nbsp;</td>
+    </tr>
+
+
+<tr> 
+    <td valign="top"><b>We Sent</b></td> 
+      <td valign="top"><b>1 X ASDA FF CHOCO SNAPS  300G<br><span style="color:green;font-weight:bold;"> ✓You still get your discount</span></b></td>
+      <td valign="top" style="text-decoration:none;">£1.74</td>
+    </tr>
+<tr>
+    <td>&nbsp;</td>
+    </tr>
+
+
+<tr>
+     <td colspan="3">
+      <hr>
+    </td>
+   </tr>
+ 
+
+<tr>
+  <td>&nbsp;</td>
+  </tr>
+
+
+
+
+
+
+</table>
+
+</div>
+
+
+
+<br><table style="width:100%;font-family:Helvetica;font-size:13.5px;" cellspacing="0" border="0" cellpadding="0">
+    
+  <tr>
+<td align="left" style="font-size:13.5px;font-weight: bold;font-family:Helvetica;">Your Order</td>
+</tr>
+
+
+
+  <tr><td colspan="2">
+   
+<!--        -->
+     <table style="width:100%;font-family:Helvetica;font-size:13.5px;" cellspacing="0" border="0" cellpadding="13">
+
+  <tr><td>&nbsp;</td>
+  
+</tr><tr style="background:#e4e4e4;font-weight:bold">
+    <td style="width:70%">Others</td><td>Quantity</td>
+      <td align="right">price</td>
+    </tr>
+
+    
+
+<tr>
+    <td>ASDA Mild &amp; Versatile White Mushrooms    </td>
+      <td>1</td>
+      <td align="right">£0.88    </td>
+    </tr>
+    
+
+<tr>
+    <td>ASDA Whole Cucumber    </td>
+      <td>1</td>
+      <td align="right">£0.89    </td>
+    </tr>
+    
+
+<tr>
+    <td>ASDA 6 Large Free Range Eggs    </td>
+      <td>1</td>
+      <td align="right">£2.00    </td>
+    </tr>
+    
+
+<tr>
+    <td>Alpro Soya No Sugars Long Life Drink    </td>
+      <td>2</td>
+      <td align="right">£3.76    </td>
+    </tr>
+    
+
+<tr>
+    <td>ASDA Butcher's Selection Beef Mince (Typically Less Than 20% Fat)    </td>
+      <td>2</td>
+      <td align="right">£6.56    </td>
+    </tr>
+    
+
+<tr>
+    <td>ASDA Red Pepper    </td>
+      <td>3</td>
+      <td align="right">£2.07    </td>
+    </tr>
+    
+
+<tr>
+    <td>The BAKERY at ASDA 8 White Wraps 488g    </td>
+      <td>2</td>
+      <td align="right">£2.36    </td>
+    </tr>
+    
+
+<tr>
+    <td>Grana Padano Grated Grana Padano Cheese 100g    </td>
+      <td>1</td>
+      <td align="right">£2.16    </td>
+    </tr>
+    
+
+<tr>
+    <td>ASDA Special Flakes Cereal    </td>
+      <td>1</td>
+      <td align="right">£1.84    </td>
+    </tr>
+    
+
+<tr>
+    <td>ASDA 2 Garlic &amp; Coriander Naans    </td>
+      <td>1</td>
+      <td align="right">£0.80    </td>
+    </tr>
+    
+
+<tr>
+    <td>ASDA Chicken Tikka Masala with Pilau Rice    </td>
+      <td>2</td>
+      <td align="right">£3.88    </td>
+    </tr>
+    
+
+<tr>
+    <td>ASDA Chopped Tomatoes 400g    </td>
+      <td>1</td>
+      <td align="right">£0.49    </td>
+    </tr>
+    
+
+<tr>
+    <td>ASDA Sweet &amp; Juicy Royal Gala Apples    </td>
+      <td>1</td>
+      <td align="right">£1.67    </td>
+    </tr>
+    
+
+<tr>
+    <td>ASDA 3 Sweet &amp; Crunchy Red Onions    </td>
+      <td>1</td>
+      <td align="right">£0.95    </td>
+    </tr>
+    
+
+<tr>
+    <td>ASDA Lightly Salted Tortilla Chips 180g    </td>
+      <td>1</td>
+      <td align="right">£0.99    </td>
+    </tr>
+    
+
+<tr>
+    <td>Goodfella's Takeaway Loaded Pepperoni 524g    </td>
+      <td>1</td>
+      <td align="right">£2.74    </td>
+    </tr>
+    
+
+<tr>
+    <td>JUST ESSENTIALS by ASDA 10 Breaded Cod Fishcakes 500g    </td>
+      <td>1</td>
+      <td align="right">£2.00    </td>
+    </tr>
+    
+
+<tr>
+    <td>ASDA Natural Yogurt 500g    </td>
+      <td>2</td>
+      <td align="right">£2.16    </td>
+    </tr>
+    
+
+<tr>
+    <td>ASDA Cherry Cola Zero    </td>
+      <td>1</td>
+      <td align="right">£0.49    </td>
+    </tr>
+    
+
+<tr>
+    <td>ASDA Tender Chicken Breast Portions 300G    </td>
+      <td>2</td>
+      <td align="right">£4.48    </td>
+    </tr>
+    
+
+<tr>
+    <td>ASDA Black Pepper Dry Cured Ham 120g    </td>
+      <td>1</td>
+      <td align="right">£2.14    </td>
+    </tr>
+    
+
+<tr>
+    <td>ASDA Garden Gang 7 Brilliant Bananas (Colour may vary)    </td>
+      <td>1</td>
+      <td align="right">£0.88    </td>
+    </tr>
+    
+
+<tr>
+    <td>Nicky Ultra Paper Towel Larger Sheets    </td>
+      <td>1</td>
+      <td align="right">£1.50    </td>
+    </tr>
+    
+
+<tr>
+    <td>Always Soft Like Cotton Normal Panty Liners, 0% Perfume, 18 Count    </td>
+      <td>1</td>
+      <td align="right">£0.98    </td>
+    </tr>
+    
+
+<tr>
+    <td>ASDA Multivitamins Wellbeing Tablets    </td>
+      <td>1</td>
+      <td align="right">£2.48    </td>
+    </tr>
+    
+
+<tr>
+    <td>Old El Paso Mexican Refried Beans    </td>
+      <td>1</td>
+      <td align="right">£2.34    </td>
+    </tr>
+    
+
+<tr>
+    <td>ASDA Conchiglie 500g    </td>
+      <td>1</td>
+      <td align="right">£0.75    </td>
+    </tr>
+    
+
+<tr>
+    <td>COOK by ASDA Thyme 17g    </td>
+      <td>1</td>
+      <td align="right">£1.00    </td>
+    </tr>
+    
+
+<tr>
+    <td>ASDA British Milk Semi Skimmed 1 Pint    </td>
+      <td>1</td>
+      <td align="right">£0.85    </td>
+    </tr>
+    
+
+<tr>
+    <td>ASDA Risotto Arborio Rice 500g    </td>
+      <td>1</td>
+      <td align="right">£2.40    </td>
+    </tr>
+    
+
+<tr>
+    <td>Birds Eye Petits Pois 545g    </td>
+      <td>1</td>
+      <td align="right">£2.64    </td>
+    </tr>
+    
+
+<tr>
+    <td>Pepsi Max No Sugar Cola Bottle 2L    </td>
+      <td>1</td>
+      <td align="right">£1.98    </td>
+    </tr>
+    
+
+<tr>
+    <td>ASDA FF CHOCO SNAPS  300G    </td>
+      <td>1</td>
+      <td align="right">£1.74    </td>
+    </tr>
+
+  
+</table>
+
+  </td>
+  </tr>
+
+</table>
+
+
+<hr>
+    
+   
+
+
+ 
+<table style="width:100%;font-family:Helvetica;font-size:13.5px;" cellspacing="0" border="0" cellpadding="0">      
+      <tr>
+      <td>Groceries</td>
+        <td>&nbsp;</td>
+        <td align="right" style="padding-right:12px">£64.85</td>
+
+      </tr>
+       <tr>
+    </tr></table>
+
+    
+<table style="width:100%;font-family:Helvetica;font-size:13.5px;margin-top:8px" cellspacing="0" border="0" cellpadding="0">
+      <tr>
+      <td>Pick &amp; pack*</td>
+        <td>&nbsp;</td>
+        
+        <td align="right" style="padding-right:12px">£0.00</td>
+      </tr>
+       <tr>
+    </tr></table>
+
+    
+
+
+<table style="width:100%;font-family:Helvetica;font-size:13.5px;margin-top:8px" cellspacing="0" border="0" cellpadding="0">
+      <tr>
+      <td>Donate to charity</td>
+        <td>&nbsp;</td>
+
+        <td align="right" style="padding-right:12px">£0.00</td>
+      </tr>
+       <tr>
+    </tr></table>
+
+    
+
+<!--    <table style="width:100%;font-family:Helvetica;font-size:13.5px;margin-top:10px" cellspacing="0" border="0" cellpadding="0">           <tr>   <td style="font-weight:bold">Savings</td>                 <td>&nbsp;</td>         <td align="right" style="padding-right:12px">&nbsp;</td>       </tr>        <tr>     </tr></table>  -->
+
+<table style="width:100%;font-family:Helvetica;font-size:13.5px;margin-top:8px" cellspacing="0" border="0" cellpadding="0">
+      <tr>
+      <td>Multibuy ( items)</td>
+        <td>&nbsp;</td>
+        <td align="right" style="padding-right:12px">-£0.00</td>
+      </tr>
+       <tr>
+    </tr></table>
+  
+
+     
+
+<table style="width:100%;font-family:Helvetica;font-size:13.5px;margin-top:8px" cellspacing="0" border="0" cellpadding="0">
+      <tr>
+      <td>eVoucher savings </td>
+        <td>&nbsp;</td>
+
+        <td align="right" style="padding-right:12px">-£0.00</td>
+      </tr>
+       <tr>
+    </tr></table> 
+
+
+<table style="width:100%;font-family:Helvetica;font-size:13.5px;margin-top:8px" cellspacing="0" border="0" cellpadding="0">
+      <tr>
+      <td>Gift cards**</td>
+        <td>&nbsp;</td>
+
+        <td align="right" style="padding-right:12px">-£0.00</td>
+      </tr>
+       <tr>
+    </tr></table> 
+
+
+
+           
+<table style="width:100%;font-family:Helvetica;font-size:13.5px;margin-top:8px" cellspacing="0" border="0" cellpadding="0">
+      <tr>
+      <td>Asda Rewards Voucher</td>
+        <td>&nbsp;</td>
+        <td align="right" style="padding-right:12px">
+
+ -£0.00</td>
+      </tr>
+       <tr>
+    </tr></table> 
+
+
+         
+<table style="width:100%;font-family:Helvetica;font-size:13.5px;margin-top:8px" cellspacing="0" border="0" cellpadding="0">
+      <tr>
+      <td>Discounted for you Savings </td>
+        <td>&nbsp;</td>
+        <td align="right" style="padding-right:12px">-£0.00</td>
+      </tr>
+       <tr>
+    </tr></table> 
+   
+
+           
+<table style="width:100%;font-family:Helvetica;font-size:13.5px;margin-top:8px" cellspacing="0" border="0" cellpadding="0">
+      <tr>
+      <td>Free sample Savings </td>
+        <td>&nbsp;</td>
+        <td align="right" style="padding-right:12px">-£0.00</td>
+      </tr>
+       <tr>
+    </tr></table> 
+   
+
+   
+  <hr style="background-color:black">
+  
+<table style="width:100%;font-family:Helvetica;font-size:15.5px;margin-top:8px" cellspacing="0" border="0" cellpadding="0">
+      <tr>
+      <td><b>Order total</b> </td>
+        <td>&nbsp;</td>
+        <td align="right" style="padding-right:12px">£64.85</td>
+      </tr>
+       <tr>
+    </tr></table> 
+  
+
+<br>
+<table style="width:100%;font-family:Helvetica;font-size:13.5px;" cellspacing="0" border="0" cellpadding="0">
+  <tr style="background-color:white;font-family:Helvetica;font-size:13.5px">
+  <td style="padding:5px;line-height:23px"> <a target="_blank" href="https://esp01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.emails.asda.com%2F%3Fqs%3D7f84168cf33191269219ce0166fb0c53dcaff8f13c43ff2cc0bfada24629e7f3e5b6dcbef91a19cb6181ca359d54e3b62d3f1d36fac61781fae9d1226c9bf7ee&amp;data=05%7C02%7C%7Cc15222099fb64f1a404108ddd3ef5eeb%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638899747238391449%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=vXzHdpM1hE60mU%2B%2FZb4Z%2FHWDDxcLeW%2FYAM1h9m0FdJA%3D&amp;reserved=0" originalsrc="https://click.emails.asda.com/?qs=7f84168cf33191269219ce0166fb0c53dcaff8f13c43ff2cc0bfada24629e7f3e5b6dcbef91a19cb6181ca359d54e3b62d3f1d36fac61781fae9d1226c9bf7ee" style="font-weight:bold;"> <b><u>When we charge you</u></b> </a> <br>
+We charge you on the day of your order. <br>
+Have money in your account the day before so we can set up payment.<br>
+Your order total is likely to change due to product availability and the exact weight of your fresh food. <br>
+If your total does change you may see several charges or refunds go through - this is normal 
+</td>   
+  </tr>
+  <tr><td><hr style="background-color:black;"></td></tr>
+
+  <tr><td>
+    <div>
+       <span style="font-size:13.5px;font-weight: bold;font-family:Helvetica">Payment details</span> <br><br>
+
+
+       
+                     <table cellpadding="0" cellspacing="0" border="0" class="summary-right" style="font-family: Helvetica;; font-size:12px; ">
+   <!-- iterating over payments start-->                
+                   
+        
+                 <tr>
+                 <td width="30" align="center"><img src="https://image.emails.asda.com/lib/fe3611737364047c7d1472/m/1/6d2869f6-44d7-4e72-a315-ce21ceb7ad21.png" class="image_fix" height="25" width="25"></td>
+            <td align="left" width="70%" style="padding-left:10px;">
+                ************1277
+               
+                
+            </td>
+         <!--     <td width="64" align="center">************1277</td> -->
+
+                 </tr>
+ 
+                    <!-- iterating over payments end-->  
+                </table>
+    
+      
+      <div style="font-size:9px;font-family:Helvetica;margin-top:5px"> *Exact price depends on weight of available items</div>
+
+   <br>
+
+<br>
+<div><!--[if mso]>   <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" target="_blank" href="https://esp01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.asda.com%2Faccount%2Forders%2Fdetail%2F7000003901303&amp;data=05%7C02%7C%7Cc15222099fb64f1a404108ddd3ef5eeb%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638899747238411505%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=LtFRakWczfduQjdaTa6HwLAdB1qj7nd2xLlRVHxv45w%3D&amp;reserved=0" originalSrc="https://www.asda.com/account/orders/detail/7000003901303" style="height:40px;v-text-anchor:middle;width:200px;" stroke="f" fillcolor="#7abe2b">     <w:anchorlock/>     <center style="color:#ffffff;font-family:Helvetica;font-size:13.5px;font-weight:bold;" class="keep-white">View order online</center>   <![endif]--><!--[if !mso]><!-->
+      <a target="_blank" href="https://esp01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.emails.asda.com%2F%3Fqs%3D7f84168cf331912652d68a59ea88243edc7670a490427fa3d940c9904b7ea5a04b34c335992fd818c94d7052c96f83409c08a8044d36a4517218dfeacd735338&amp;data=05%7C02%7C%7Cc15222099fb64f1a404108ddd3ef5eeb%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638899747238424535%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=oT5t9Cg1sZD3VVeeSQI2dthyl05JG2KT8IruCi86z84%3D&amp;reserved=0" originalsrc="https://click.emails.asda.com/?qs=7f84168cf331912652d68a59ea88243edc7670a490427fa3d940c9904b7ea5a04b34c335992fd818c94d7052c96f83409c08a8044d36a4517218dfeacd735338" style="background-color:#7abe2b;color:#ffffff;display:inline-block;font-family:Helvetica;font-size:13.5px;font-weight:bold;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;" class="keep-white">View order online</a>
+   <!--<![endif]-->
+  <!--[if mso]>     </center>   </v:rect> <![endif]--></div>
+      
+
+
+
+ </div></td></tr></table></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 0px 20px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; border-top: 0px; border-right: 20px solid #E4E4E4; border-bottom: 0px; border-left: 20px solid #E4E4E4; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px 0px 0px 5px; " class="stylingblock-content-wrapper camarker-inner"><table cellpadding="5" cellspacing="0" border="0" style=" width:100%; font-family: Helvetica; font-size:13.5px; line-height:19px;">
+  <tr>
+  <td>
+    Thanks<br>
+    Asda
+    </td>
+  </tr>
+  <tr>
+  <td>
+     <hr style="background-color:black">
+       <div style="margin-left:10px;"><span style="font-size:13.5px">►&nbsp;</span><a target="_blank" href="https://esp01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.emails.asda.com%2F%3Fqs%3D7f84168cf3319126db5a16aca61ccd595bbee4a7bb0d066a9e3beaa6d4563861fa745033ffd424ca3661dd2a3180fe70d4342149049ed0ef5f4bfe7f92fe5a8f&amp;data=05%7C02%7C%7Cc15222099fb64f1a404108ddd3ef5eeb%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638899747238435759%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=PiDyeqe8Om2v2s5pLNjeGHaRJEc%2BDblxPl9dvTGgzI4%3D&amp;reserved=0" originalsrc="https://click.emails.asda.com/?qs=7f84168cf3319126db5a16aca61ccd595bbee4a7bb0d066a9e3beaa6d4563861fa745033ffd424ca3661dd2a3180fe70d4342149049ed0ef5f4bfe7f92fe5a8f" style="font-family:Helvetica;font-size:13.5px;text-decoration:none;font-weight:bold;color:#0000F;">Help Centre</a></div>
+    </td>
+  </tr>
+
+</table></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 0px 20px 20px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #E4E4E4; min-width: 100%; border-top: 0px; border-right: 20px solid #E4E4E4; border-bottom: 20px solid #E4E4E4; border-left: 20px solid #E4E4E4; " class="stylingblock-content-wrapper"><tr><td style="padding: 20px; " class="stylingblock-content-wrapper camarker-inner">
+
+<table border="0" cellspacing="0" cellpadding="s0" class="footertable" style="width:100%;  font-size: 10px;   text-align: center;   background-color: #E4E4E4;   color: black;   font-family: Helvetica;   border-collapse: separate;   line-height:14px;   -webkit-text-size-adjust:none;">
+  <tr><td class="footer-h1" style="  font-size:9.5px;   font-family: Helvetica;color:black" align="center">
+   <span style=" width:100%;font-size:10px; text-align: center;background-color:#e4e4e4;color:black;font-family: helvetica; border-collapse: separate;line-height:14px; -webkit-text-size-adjust:none;font-weight:bold"><b>Please do not reply to this email.</b></span><br><br>
+
+     This is a service message from Asda Stores Ltd, Registered in England No. 00464777.<br>
+   Registered Office: Asda House, Southbank, Great Wilson Street, Leeds LS11 5AD 
+          
+    <br><br>
+          This email and any files transmitted with it are confidential and intended solely for the individual or entity to whom they are addressed. If you have received this email in error please accept our apologies &amp; destroy it immediately.
+    <br><br>
+
+    <hr style="background-color:black;">
+    <br>
+
+
+
+
+
+
+
+ <span style="line-height:18px">       © ASDA 2025<br>
+      <a class="footer-a" target="_blank" href="https://esp01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.emails.asda.com%2F%3Fqs%3D7f84168cf3319126a41b1909585eafec1ce2b5cdf13183e6e5fc76f5a4f0ca3e17f2261c23c3cd39eb763c0e7f9848964bb988f2f1a8388d5b706dcc51a80b8e&amp;data=05%7C02%7C%7Cc15222099fb64f1a404108ddd3ef5eeb%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638899747238446732%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=6b6TmKNZlvyjTLLQhsb8YdEqEjwnVcUcorbeijxBd78%3D&amp;reserved=0" originalsrc="https://click.emails.asda.com/?qs=7f84168cf3319126a41b1909585eafec1ce2b5cdf13183e6e5fc76f5a4f0ca3e17f2261c23c3cd39eb763c0e7f9848964bb988f2f1a8388d5b706dcc51a80b8e" style="color: black;     font-weight: bold;     text-decoration: underline;     "> Terms &amp; Conditions  </a><span>·</span>
+  <a class="footer-a" target="_blank" href="https://esp01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.emails.asda.com%2F%3Fqs%3D7f84168cf3319126ddfd6695a52e260cc5899d865142a95e2e7cdfa862a2285a42693b3ea27f098739d8f725cda693e848da904cb8c265d8f8d70d6175af89ba&amp;data=05%7C02%7C%7Cc15222099fb64f1a404108ddd3ef5eeb%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638899747238457878%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=1wdPMXU7F2sIG9prEiuP1Q1bPFA3mONiMBqHWGnL4uk%3D&amp;reserved=0" originalsrc="https://click.emails.asda.com/?qs=7f84168cf3319126ddfd6695a52e260cc5899d865142a95e2e7cdfa862a2285a42693b3ea27f098739d8f725cda693e848da904cb8c265d8f8d70d6175af89ba" style="color: black;     font-weight: bold;     text-decoration: underline;      ">Privacy and Cookies Policy</a></span>
+
+    </td></tr>
+   
+</table>
+</td></tr></table></td></tr></table>
+              
+                                                </td>
+                                              </tr>
+                                              </tbody>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top">
+          
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+--LPWa8mAdColu=_?:--
