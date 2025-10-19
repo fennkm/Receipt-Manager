@@ -6,8 +6,8 @@ def main():
 
 # Based on user selections, divides the cost of each item up between the contributors
 def calculateCosts(items, app):
-    costs = [0] * 3
-    contribs = [False] * 3
+    costs = [0] * 4
+    contribs = [False] * 4
     uiItemListLayout = app.itemList.layout()
 
     for i in range(len(items)):
@@ -15,6 +15,7 @@ def calculateCosts(items, app):
         contribs[0] = uiItemBox.checkBox1.isChecked()
         contribs[1] = uiItemBox.checkBox2.isChecked()
         contribs[2] = uiItemBox.checkBox3.isChecked()
+        contribs[3] = uiItemBox.checkBox4.isChecked()
         
         price = items[i][2]
         divisor = contribs.count(True)
@@ -25,13 +26,14 @@ def calculateCosts(items, app):
             if contribs[i]:
                 costs[i] += price / divisor
 
-    costStrings = [""] * 3
+    costStrings = [""] * 4
     for i in range(len(costs)):
         costStrings[i] = "£" + "{:,.2f}".format(round(costs[i]) / 100)
 
     app.cost1.setText(costStrings[0])
     app.cost2.setText(costStrings[1])
     app.cost3.setText(costStrings[2])
+    app.cost4.setText(costStrings[3])
 
 # Extracts item names, quantities and costs from a given .eml file into an array of tuples
 def extractItems(filepath) -> list[tuple[str, int, int]]:

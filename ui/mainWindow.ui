@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>550</height>
+    <width>1122</width>
+    <height>564</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -159,6 +159,16 @@
             </property>
            </widget>
           </item>
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>Tank</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>
@@ -187,8 +197,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1005</width>
-         <height>443</height>
+         <width>1087</width>
+         <height>434</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="itemListLayout">
@@ -334,6 +344,16 @@
           </item>
           <item>
            <widget class="QLabel" name="cost3">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="cost4">
             <property name="text">
              <string/>
             </property>
