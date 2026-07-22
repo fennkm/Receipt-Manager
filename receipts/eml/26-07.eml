@@ -1,0 +1,3817 @@
+Received: from AS4P195MB1885.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:575::21)
+ by PAWP195MB2395.EURP195.PROD.OUTLOOK.COM with HTTPS; Mon, 20 Jul 2026
+ 08:01:16 +0000
+Received: from SJ0PR03CA0207.namprd03.prod.outlook.com (2603:10b6:a03:2ef::32)
+ by AS4P195MB1885.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:575::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.18; Mon, 20 Jul
+ 2026 08:01:12 +0000
+Received: from SJ1PEPF0000231D.namprd03.prod.outlook.com
+ (2603:10b6:a03:2ef:cafe::38) by SJ0PR03CA0207.outlook.office365.com
+ (2603:10b6:a03:2ef::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.16 via Frontend Transport; Mon,
+ 20 Jul 2026 08:01:11 +0000
+Authentication-Results: spf=pass (sender IP is 159.92.154.139)
+ smtp.mailfrom=bounce.emails.asda.com; dkim=pass (signature was verified)
+ header.d=emails.asda.com;dkim=pass (signature was verified)
+ header.d=s51.y.mc.salesforce.com;dmarc=pass action=none
+ header.from=emails.asda.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of bounce.emails.asda.com
+ designates 159.92.154.139 as permitted sender)
+ receiver=protection.outlook.com; client-ip=159.92.154.139;
+ helo=mta8.emails.asda.com; pr=C
+Received: from mta8.emails.asda.com (159.92.154.139) by
+ SJ1PEPF0000231D.mail.protection.outlook.com (10.167.242.234) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.5
+ via Frontend Transport; Mon, 20 Jul 2026 08:01:10 +0000
+X-IncomingTopHeaderMarker: OriginalChecksum:531A718CAF875BC148694549E05B63CCE08ECDBB6810CDC0D6CBE9C556FEE83B;UpperCasedChecksum:7BBE7D716FF9592F6BB84B8C30F17D8170AE6F1454869B418DC598A86D694236;SizeAsReceived:2108;Count:15
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=51dkim1; d=emails.asda.com;
+ h=From:To:Subject:Date:List-Help:MIME-Version:Message-ID:Content-Type;
+ i=email@emails.asda.com;
+ bh=xqCDi5+xFd3hzbygGFruPG7d4P3+prPVvLxC4KpwCSk=;
+ b=wD0Tu4YptfFdaMbE0YLbl/QZtLFidEyJeQzdldTJKrt09yxgGxu80p0FppMaFDnYuF3q+vKVl4/H
+   nbOohmqxX2SlNEw7WgWxPKwL8en7mo0K1rDILUb0OgGk0lAaUOspZpkYHGMf8r3HL8JLWG263lH9
+   BzrbHZy4hAy6YOFQH59PM/y8jRTeH1R51Cr0WBwm6JXGaq8rypZbIsLQK5pID9wzXICFhSCbsL4h
+   QNzD40bp8+6tYVV38uJLAx3DioB0iRdFFdy2cGKdK9rXri5dSlHgnMbrlVVBq9WU5gIINksdue+E
+   TLl3zlvLltP05mn2wEtHLeWXmKxMdGxGrWFNeg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=fbldkim51; d=s51.y.mc.salesforce.com;
+ h=From:To:Subject:Date:List-Help:MIME-Version:Message-ID:Content-Type;
+ bh=xqCDi5+xFd3hzbygGFruPG7d4P3+prPVvLxC4KpwCSk=;
+ b=f1lHfZu5FMGVDht0vm8GEKFDeLruOF5hU0vTOpXvnEtL8JGNoMbUW/pNzTrnMRKGuibWit1zLgza
+   Udp1eEIkKYkr/Hrt1WBGe4oLgW8AatdIHNEb7F5EjiOgHW515q46HF45SHtB9F3mLJiW/1eBmLI0
+   HTPIz+jM3AD+agikO29In3GU1btlgkcq6+T0pn4d+WUm4CrzQsQIiazFHymFwgXNb6LPecfQEYci
+   ijoMbpIfgL+lX80KjgvGcof7FKTBKErGqfErQnuLWe8MlswiRMVWuxBYypiGiRt7MLvGDdFnXkhM
+   TVrLAp5X912D5V3X5gIBNBEvOdBa6XcwTxMeSQ==
+Received: by mta8.emails.asda.com id hbnasa39mjci for <kitanstey@outlook.com>; Mon, 20 Jul 2026 08:01:08 +0000 (envelope-from <bounce-JSCEX4SXMVRE3A32PH4OKQ2INE.510005@bounce.emails.asda.com>)
+From: "Asda Online Grocery" <email@emails.asda.com>
+To: <kitanstey@outlook.com>
+Subject: Thank you for shopping with ASDA
+Date: Mon, 20 Jul 2026 02:01:06 -0600
+List-Help: <https://click.emails.asda.com/subscription_center.aspx?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtaWQiOiI1MzYwMDE4MDEiLCJzIjoiOTc5MDg5MDQiLCJsaWQiOiI2NyIsImoiOiI4MTQyOTUiLCJqYiI6IjE4Mjk2ODUiLCJkIjoiNTEwMDA1In0.R_Z-J0uVvBCf7XV4hdB2-OP-QjR3yQ7vbjpYzbJ1Dug>
+x-messageKey: cb72f285-355e-439f-92a3-f29c4a78bcd3
+X-Delivery: Transactional
+X-SFMC-Stack: 51
+x-job: 536001801_814295
+Message-ID: <6141a504-f2b3-4452-8f69-9843629553c8@cdg3s51mta0557.xt.local>
+Content-Type: multipart/alternative;
+	boundary="mAqfi88EUbLs=_?:"
+X-IncomingHeaderCount: 15
+Return-Path: bounce-JSCEX4SXMVRE3A32PH4OKQ2INE.510005@bounce.emails.asda.com
+X-MS-Exchange-Organization-ExpirationStartTime: 20 Jul 2026 08:01:11.1009
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 45e75f8f-027b-4759-66ea-08dee635101a
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF0000231D:EE_|AS4P195MB1885:EE_|PAWP195MB2395:EE_
+X-MS-Exchange-Organization-AuthSource: SJ1PEPF0000231D.namprd03.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 7/20/2026 8:00:36 AM
+X-MS-Office365-Filtering-Correlation-Id: 45e75f8f-027b-4759-66ea-08dee635101a
+X-Sender-IP: 159.92.154.139
+X-MS-Exchange-EOPDirect: true
+X-SID-PRA: EMAIL@EMAILS.ASDA.COM
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:2;ARA:1444111002|58200799025|1680799066|9000799056|3069299007|6019299003|6089299003|68400799013|47200799027|10300799038|9400799043|5139299004|1602099012|30041999003|1122599022|56899033|1360799030|1370799030|1380799030|440099028|4302099013|3412199025|26104999009;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jul 2026 08:01:10.6304
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 45e75f8f-027b-4759-66ea-08dee635101a
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF0000231D.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4P195MB1885
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:06.1243542
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0223.005
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:I;ENG:(5062000311)(920221119095)(90000117)(920221120095)(90012020)(91020020)(91040095)(9050020)(9100341)(944500132)(4810010)(4910033)(9575002)(10195002)(9320005)(120001)(1110175);
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MTtHRD0xO1NDTD0z
+X-Microsoft-Antispam-Message-Info:
+	=?Windows-1252?Q?hmuh+LJOBMTg3GX010rujMIdyLEsahYWyPJMMrZsaU9YUTodhH1joC5j?=
+ =?Windows-1252?Q?fhGyHdxHtqIbutav/E3KAON24JytHaImQDxuGyUGG35w4e1jhqyrcOXk?=
+ =?Windows-1252?Q?hCHQTGu/bKg7y5NwxtqbyfubyorfRamU05xrnm14qqb+9ZMIeq0he14K?=
+ =?Windows-1252?Q?hVv6MdqEr/tEEziux3fxQXD038tlN492Vzf9Y5HlUglJjRMubcxqvUyp?=
+ =?Windows-1252?Q?4tIWympdzkycaF8ceUF549y7TL/7j9w4C53RxKFUCg9T0FNcr7/txt99?=
+ =?Windows-1252?Q?uJGoehA3eJ7sSKt2Im8PD8tN7Rr+k+8iaDuvpqX294+Y8XX6y3xMBOTm?=
+ =?Windows-1252?Q?Z2keS31FaW/T9FGxcQvdOcOo0rPSP60JxY2GLRQRdq9kQACq3++kQMBz?=
+ =?Windows-1252?Q?xr9YsMrZ6/xsrsNsbFjpHkTqt+C+mdjOMS4zHcb8U8QCzI6S4CGmYfzp?=
+ =?Windows-1252?Q?izynh6+15drwYdpEMCCKa/Af5fAXr3/HZTJPNy5kemn6xwQ+bDDvEy2K?=
+ =?Windows-1252?Q?q8Jlu7UsOo4MtHysQgeiNa6RMs8XMLXaW/75mVB9jJrdfbIhuEAZBpXx?=
+ =?Windows-1252?Q?KtKsV5NSALvksCzkzT2yJUpgUP2ipt3G9LHletpfYt5FBRnMRofsTpho?=
+ =?Windows-1252?Q?fIhN9m642f7+LkA8y2DTkJ3Thsvuztr7WbB8DpNGuz4yHjd//HM0MpJ3?=
+ =?Windows-1252?Q?6INFNDBugYxV3Z+N9p/Tu30s8UMPZIyzE5RPrUaC8A7tKKXRuOgNL53j?=
+ =?Windows-1252?Q?/BZEvzLCwOJsHer1AeMMw+dtmERx8s55oz1hGLzmFoOrvhOuVHZxk1Wq?=
+ =?Windows-1252?Q?0MkI6vEGlHKu5/Zao1lMB+1zwY9rnhJMQEqjY24jemCR+hvuBONVO0pL?=
+ =?Windows-1252?Q?FvErqcXN2cwgXCfMty4MfI81OKKWoJiawKzP6iqB/0vde2mB1RhwGI/N?=
+ =?Windows-1252?Q?2+A0E4vgrFKDNY4+aVSLrLDtb9JYHUxGoDRZABEtshmdPcguesYxGfUr?=
+ =?Windows-1252?Q?2orEq6wdZTvmt876/pJYc6Ksy209ntIZG1KFPKFIBo/x+mRHNw+vbjY/?=
+ =?Windows-1252?Q?dbioLLWgfRE1urRZ3JaHcOST7GCiD4nTAij6RI0WfNmGKgwVNzmBsVXn?=
+ =?Windows-1252?Q?rYAs6prKT/TtR61ezrlat214Rn4zsjjmUxBbN72JAp7OVFLjvG6t73hz?=
+ =?Windows-1252?Q?p/tMhPyNja0jOwUyEVSNalG42klwv4xyNztLY/9HIWUmMTEpF/XXpCXU?=
+ =?Windows-1252?Q?l14cPnbkmxEE288yk9L+5tZE2S2adFsVSpLbMLRPEtdPSTzYt02Fmqyi?=
+ =?Windows-1252?Q?BvRXz/DBx4L8keUZuoBdTC24MlzvUNMqQcT9uv5go855vYPps/8omhJW?=
+ =?Windows-1252?Q?RQuHinKcyY+zrpwcH5VumrBI8Fi5x1PPqzKpf+j9VeRbiWH+9NGMoRpL?=
+ =?Windows-1252?Q?Y6Ot/Tq7fi/iePV8jmVCk4ZEfKnO9DWBWWyG4JFTiwJiCwVJd6d4GDAs?=
+ =?Windows-1252?Q?5Zni+S4+VNIKw9oOGv3421mjwkp4h8BSsH9lJY/8qLvINT6cpNlr9844?=
+ =?Windows-1252?Q?4fq+U3X6hr/RDIMD80nT+eTwLwzrNwuNd+t8w3PR1v6tyYMXxsAsVziI?=
+ =?Windows-1252?Q?0Gzlx/xnbMgFOU2/aXE934AXoPk9xhM/IsV79ISsuY8v8h5Oru4FzRpE?=
+ =?Windows-1252?Q?0T2lKjii/Cqo5FTl82uOt/vXBNzjBll02av7v/M7oQXX5CTAlrPF++Zx?=
+ =?Windows-1252?Q?fqaCtALUT4hlCPU7lj/tdJWXVKqPZq3COE6kT+CfmZC3u9asR5wIbYLD?=
+ =?Windows-1252?Q?+Xu1H8cEJBvQqyy/nBy861Uh07L7kAOK4HKDs/1dm5aWwWOtBs2hKG3u?=
+ =?Windows-1252?Q?0bitfE62j71+bK3aToGFZH2WepMYpMXOrExJJ3s4lz5qI+oLj4IF4gCs?=
+ =?Windows-1252?Q?mle7FEK50B4w/OFhnBPUfee1MnBBz8g9Y57rnis5atk86HAMkG3TY19x?=
+ =?Windows-1252?Q?OBpl9Eo0/m/QgGmwp5jzPEFaMcgAzcnZ1xM0SnHXFr1hTpZYVLm9teCp?=
+ =?Windows-1252?Q?KbvQn27KuUAALM4AUJWvhDcfHapofkKMTDGeAVbG05IsH9Auo/saKd2h?=
+ =?Windows-1252?Q?lNokleV9xO6i5eiXOZfwgr6MwbJlKo2XPva0R/IXbtT6cZo8Agg+MGaY?=
+ =?Windows-1252?Q?0Lg8HXC04GArxKMderrjbs2eZ0N1/dU27V3bWmtDlt0NI/JlnywVHhct?=
+ =?Windows-1252?Q?0LXjFzPkIlcqlbh332g=3D?=
+MIME-Version: 1.0
+
+--mAqfi88EUbLs=_?:
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+
+ 
+ 
+
+ 
+
+
+
+
+https://click.emails.asda.com/?qs=ABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5jsIAHX334gh0OPJ8LeuJPSjnThYw0x4a6yNefzIhEWs0rEBLRLdmvkWO2HO7IxIZJwAaeB5HXhplr0gTQwIDifiNnMInqf7D5PdFR 
+View this email in a browser 
+
+https://click.emails.asda.com/?qs=ABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5k2fJIgjiGPDQo3EjvmznwK0PmsCzsYHwaee683k7jktkbL6jQEN-QAZ1jPSaGQaaDUuVcH8nNE97OvLynAXLPZiW6HhOntVvx41OQ 
+
+
+ Your order
+ 
+
+ Order number:
+ 
+
+ 70000065239959
+ 
+
+
+
+Delivery slot:
+ 
+
+ Monday, 20 July,
+ 08:00 AM - 09:00 AM
+ 
+ 
+
+
+
+ 
+
+ 
+
+ Delivery address:
+ 
+
+ 40 Albany Road, Coventry, GB, CV56JU
+ 
+
+
+
+ 
+
+ 
+
+ Order total:
+ 
+
+ £108.55
+ 
+
+
+
+ 
+
+ 
+ Your items
+ 
+
+Fresh
+
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA Garlic
+ 
+
+ 
+
+ 
+ 
+ £0.47  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA 2 Garlic & Coriander Naans
+ 
+
+ 
+
+ 
+ 
+ £0.80  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA Chicken Tikka Masala with Pilau Rice 400g
+ 
+
+ 
+
+ 
+ 
+ £1.94  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ Monster Energy Drink Ultra Zero Sugar 4 x 500ml
+ 
+
+ 
+
+ 
+ 
+ £5.25  
+ 
+
+
+ 
+
+
+ 
+
+ 3x
+ 
+ ASDA Cola Zero 2 Litres
+ 
+
+ 
+
+ 
+ 
+ £1.47  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA Creamy & Nutty Avocados
+ 
+
+ 
+
+ 
+ 
+ £1.48  
+ 
+
+
+ 
+
+
+ 
+
+ 2x
+ 
+ ASDA Wafer Thin Honey Roast Ham 400g
+ 
+
+ 
+
+ 
+ 
+ £4.48  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA Fluffy & Golden Large Baking Potatoes 4 Pack
+ 
+
+ 
+
+ 
+ 
+ £0.79  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ Lurpak Lighter Spreadable Blend of Butter and Rapeseed Oil 750g
+ 
+
+ 
+
+ 
+ 
+ £6.98  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA Sweetcorn 1kg
+ 
+
+ 
+
+ 
+ 
+ £1.73  
+ 
+
+
+ 
+
+
+ 
+
+ 2x
+ 
+ Kleenex Supporting Mind - Single Cube Tissue Box
+ 
+
+ 
+
+ 
+ 
+ £1.50  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ COOK by ASDA Cook Garlic Granules 115g
+ 
+
+ 
+
+ 
+ 
+ £1.50  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA British Milk Semi Skimmed 2 Pints
+ 
+
+ 
+
+ 
+ 
+ £1.20  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ Birds Eye Petits Pois 545g
+ 
+
+ 
+
+ 
+ 
+ £2.64  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ McVitie's Penguin Original Biscuit Bar Multipack 7 x 24.6g, 172g
+ 
+
+ 
+
+ 
+ 
+ £1.00  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ Nivea Men Sensitive Shaving Gel 200ml
+ 
+
+ 
+
+ 
+ 
+ £2.68  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA 12 Free Range Large Eggs
+ 
+
+ 
+
+ 
+ 
+ £3.30  
+ 
+
+
+ 
+
+
+ 
+
+ 2x
+ 
+ Mission Protein Tortilla Wraps 6 Pack
+ 
+
+ 
+
+ 
+ 
+ £3.66  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA Mixed Leaf Salad 200g
+ 
+
+ 
+
+ 
+ 
+ £1.17  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA Tender Chicken Breast Fillets 1kg
+ 
+
+ 
+
+ 
+ 
+ £6.94  
+ 
+
+
+ 
+
+
+ 
+
+ 2x
+ 
+ ASDA Tender Chicken Breast Fillets 600g
+ 
+
+ 
+
+ 
+ 
+ £9.04  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ Nestle Cheerios Honey Multigrain Hoop Breakfast Cereal 515g
+ 
+
+ 
+
+ 
+ 
+ £3.50  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA Wellbeing Magnesium 375 Mg Tablets 1 a Day
+ 
+
+ 
+
+ 
+ 
+ £2.25  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA Baked Beans in a Rich Tomato Sauce 410g
+ 
+
+ 
+
+ 
+ 
+ £0.39  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA White Mushrooms 250g
+ 
+
+ 
+
+ 
+ 
+ £0.97  
+ 
+
+
+ 
+
+
+ 
+
+ 2x
+ 
+ Alpro Soya No Sugar Long Life Dairy Free Drink 1L
+ 
+
+ 
+
+ 
+ 
+ £3.56  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ Kingsmill 50/50 Bread Medium Sliced Loaf 800g
+ 
+
+ 
+
+ 
+ 
+ £1.30  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ The BAKERY at ASDA The Bakery 8 White Wraps 488g
+ 
+
+ 
+
+ 
+ 
+ £1.32  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA 6 Royal Gala Apples Fruit
+ 
+
+ 
+
+ 
+ 
+ £1.67  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA 3 Crunchy & Fragrant Brown Onions
+ 
+
+ 
+
+ 
+ 
+ £0.95  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA Lightly Salted Tortilla Chips 180g
+ 
+
+ 
+
+ 
+ 
+ £0.80  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA 16 Savoury Mini Eggs 192g
+ 
+
+ 
+
+ 
+ 
+ £1.96  
+ 
+
+
+ 
+
+
+ 
+
+ 2x
+ 
+ ASDA Natural Yogurt 500g
+ 
+
+ 
+
+ 
+ 
+ £2.16  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA 6 Bananas
+ 
+
+ 
+
+ 
+ 
+ £0.94  
+ 
+
+
+ 
+
+
+ 
+
+ 3x
+ 
+ ASDA Loose Red Pepper
+ 
+
+ 
+
+ 
+ 
+ £2.10  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA Stuffed Crust BBQ Chicken & Bacon Pizza 470g
+ 
+
+ 
+
+ 
+ 
+ £3.25  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA Just Essentials by  10 Breaded Fishcakes 500g
+ 
+
+ 
+
+ 
+ 
+ £2.00  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ Old El Paso Refried Beans 435g
+ 
+
+ 
+
+ 
+ 
+ £2.30  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA Beef & Pork Mince 750g
+ 
+
+ 
+
+ 
+ 
+ £4.88  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA Grated Carrot 150g
+ 
+
+ 
+
+ 
+ 
+ £0.43  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA Mild & Tender Baby Spinach 180g
+ 
+
+ 
+
+ 
+ 
+ £1.10  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ Napolina Tomato Puree 200g
+ 
+
+ 
+
+ 
+ 
+ £1.20  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ Echo Falls Merlot Red Wine 187ml
+ 
+
+ 
+
+ 
+ 
+ £2.75  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA Spaghetti 500g
+ 
+
+ 
+
+ 
+ 
+ £0.75  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA Grated Parmigiano Reggiano 100g
+ 
+
+ 
+
+ 
+ 
+ £2.74  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA Beef Stock Cubes 12 x 10g (120g)
+ 
+
+ 
+
+ 
+ 
+ £1.08  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA Vegetable Stock Cubes 12 x 10g (120g)
+ 
+
+ 
+
+ 
+ 
+ £1.08  
+ 
+
+
+ 
+
+
+ 
+
+ 1x
+ 
+ ASDA Peach Slices in Fruit Juice 411g
+ 
+
+ 
+
+ 
+ 
+ £1.10  
+ 
+
+
+
+
+
+
+ 
+
+
+Groceries total
+ 
+ £108.55
+ 
+
+
+
+
+
+Pick & pack*
+ 
+ £0.00
+ 
+
+
+
+
+
+
+
+Donate to charity
+ 
+ £0.00
+ 
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+ 
+ Savings
+ 
+ -£0.00
+ 
+
+
+Multibuy
+ -
+ £0.00
+ 
+
+
+
+
+
+eVoucher savings
+ 
+ - £0.00
+ 
+
+
+
+Gift cards
+ 
+ - £0.00
+ 
+
+
+
+
+ 
+ Asda Rewards Voucher
+ 
+ -£0.00
+ 
+
+
+
+
+ 
+ Discounted for you Savings
+ 
+ -£0.00
+ 
+
+
+
+
+ 
+ Free sample Savings
+ 
+ -£0.00
+ 
+
+
+
+ 
+
+
+ 
+ 
+ Order total
+ 
+ £108.55
+ 
+
+ 
+
+ 
+ Total a little different than expected?
+ For items sold by weight, the exact price may vary depending on the weight of items available. 
+ 
+
+
+ Payment details
+ 
+
+ 
+ 
+ ************1277
+ 
+ 
+ 
+ 
+
+ 
+ *Exact price depends on weight of available items
+
+**Keep your gift card and eVoucher safe until your order arrives, in case you need a refund.
+
+You can print this email from your account
+
+https://click.emails.asda.com/?qs=ABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5lC7CGOcyT6fAU9abkdwMkvUH4Rc_CtvX__94RN--5CxjxZaZEQR_Fqt48NhZKFHoiZVK6H5VM5WuiPc8chY16sX4Dq4e1ApHpN22dShMoRg 
+
+ View order in your account
+  
+
+
+ Returns & refunds
+ 
+
+
+ If you’re not happy with an item after you’ve received your shopping, you can manage returns from
+ 
+https://click.emails.asda.com/?qs=ABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5m3KNsrm-z-KamFqjN0Z_b1KKMb95kftHHq8CFvn9Ah9alfkDcQO4huJnsLNL1xRH2Q18kO9yrygD_-Zhj6WzZcJY_1ys7kVKDi_JOZopAZA 
+your orders 
+ page in your account.
+ 
+
+
+ Thanks,
+ 
+
+ Asda
+ 
+
+https://click.emails.asda.com/?qs=ABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5nyE2lRVlYy8SHnVrsgBY1mMYzoaZQh2I0sW3cZUV_WaKod1YW3JLH17IEwc1s74hXVaZ-yMq4votL_2Y4Xo6Fskp4BqNeEqqZ_YAc 
+
+https://click.emails.asda.com/?qs=ABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5oW1Q8EqcxTB3NRnY8wjzJTFkoUlwVKMa-COkzQZHil81jp5ZUTyAv0muqY1TjJl9nDgZjKZNW5qzZB9T5snPJpPElNGZNSpksmB7c 
+
+Need some help?
+ Please visit our 
+https://click.emails.asda.com/?qs=ABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5paRRHgXL1FszcQrdn0ZPbs3TiD-vtnYAkRRJcUGr40jn-MZoZfS0Kzm_YxQ8DThKdGFBUmEYxXKextGb0SfZrV7dzOOdi9QKUJ1zL4GDhlg 
+Help Centre to get support
+ 
+
+
+
+
+
+
+Please do not reply to this email.
+
+If you'd like to get in touch, please call our customer services team on 
+ 
+tel:0330 053 0111 
+0330 053 0111
+
+This is a service message from Asda Stores Ltd, Registered in England No. 464677, Registered Office: Asda House, Southbank, Great Wilson Street, Leeds LS11 5AD
+
+This email and any files transmitted with it are confidential and intended solely for the individual or entity to whom they are addressed. If you have received this email in error please accept our apologies & destroy it immediately.
+
+
+ © ASDA 2026
+ 
+
+https://click.emails.asda.com/?qs=ABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5qOkgKSZQD66IZpEl3kBZ13MRSX3WX2xSDfyEKy2_osZ-vSqN9sjDY94auqWJgl3cHHWkCVrSj-g87WyHrtsSVnZBOJs3IjxFosh_0nADF3A 
+Terms & Conditions 
+
+https://click.emails.asda.com/?qs=ABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5rNZS087XZUQJyOoBFRCMs4enk6MLKGsM_u2Bp-U6w57tk-3X-3WAjKywGvp8jZdK0qlraICjEggeyOFtQu26mSM-yQre8a3q31zjc 
+Privacy & Cookies Policy 
+
+
+ 
+ 
+
+
+ 
+ 
+
+
+--mAqfi88EUbLs=_?:
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><link rel="stylesheet" href="https://static.asda.com/fonts/asda/stylesheet.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style type="text/css">
+      ReadMsgBody{ width: 100%;}
+      .ExternalClass {width: 100%;}
+      .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+      body {-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;margin:0 !important;}
+      p { margin: 1em 0;}
+      table td { border-collapse: collapse;}
+      img {outline:0;}
+      a img {border:none;}
+      @-ms-viewport{ width: device-width;}
+    </style>
+    <style type="text/css">
+      @media only screen and (max-width: 480px) {
+        .container {width: 100% !important;}
+        .footer { width:auto !important; margin-left:0; }
+        .mobile-hidden { display:none !important; }
+        .logo { display:block !important; padding:0 !important; }
+        img { max-width:100% !important; height:auto !important; max-height:auto !important;}
+        .header img{max-width:100% !important;height:auto !important; max-height:auto !important;}
+        .photo img { width:100% !important; max-width:100% !important; height:auto !important;}
+        .drop { display:block !important; width: 100% !important; float:left; clear:both;}
+        .footerlogo { display:block !important; width: 100% !important; padding-top:15px; float:left; clear:both;}
+        .nav4, .nav5, .nav6 { display: none !important; }
+        .tableBlock {width:100% !important;}
+        .responsive-td {width:100% !important; display:block !important; padding:0 !important; }
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        /* MOBILE GLOBAL STYLES - DO NOT CHANGE */
+        body { padding: 0px !important; font-size: 16px !important; line-height: 150% !important;}
+        h1 { font-size: 22px !important; line-height: normal !important;}
+        h2 { font-size: 20px !important; line-height: normal !important;}
+        h3 { font-size: 18px !important; line-height: normal !important;}
+        .buttonstyles {
+          font-family:arial,helvetica,sans-serif !important;
+          font-size: 16px !important;
+          color: #FFFFFF !important;
+          padding: 10px !important;
+        }
+        /* END OF MOBILE GLOBAL STYLES - DO NOT CHANGE */
+      }
+      @media only screen and (max-width: 640px) {
+        .container { width:100% !important; }
+        .mobile-hidden { display:none !important; }
+        .logo { display:block !important; padding:0 !important; }
+        .photo img { width:100% !important; height:auto !important;}
+        .nav5, .nav6 { display: none !important;}
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+      }
+    </style>
+    <!--[if mso]>       <style type="text/css">           /* Begin Outlook Font Fix */               body, table, td {                  font-family : Arial, helvetica, sans-serif;                  line-height : 100%;                  font-size : 16px;                  color : #000000;               }           /* End Outlook Font Fix */       </style>     <![endif]-->
+  </head>
+  <body bgcolor="#E1E1E1" text="#000000" style="-webkit-text-size-adjust:none;background-color : #E1E1E1; font-family : 'Asda Text', 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height : 100%; font-size : 16px; color : #000000; padding : 0px 16px 32px; ">
+    <div style="font-size:0; line-height:0;"><img src="https://click.emails.asda.com/open.aspx?TV2FVXQZ4WPEZBAAOZCTMYZI24.510005&amp;d=510005&amp;bmt=0" width="1" height="1" alt=""></div>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+      <tr>
+        <td align="center" valign="top">
+          
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <table cellspacing="0" cellpadding="0" border="0" width="600" class="container" align="center">
+            <tr>
+              <td>
+                <table class="tb_properties border_style" style="background-color : #FFFFFF; border : 0px;font-size : 16px; font-family : 'Asda Text', 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height : 100%; color : #000000; " cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" width="100%">
+                  <tr>
+                    <td align="center" valign="top">
+                      <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                          <!-- added padding here -->
+                          <td class="content_padding" style="padding : 0px 0px 0px 0px; ">
+                            <!-- end of comment -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                              <tr> <!-- top slot -->
+                                <td align="center" class="header" valign="top">
+                                  <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tbody>
+                                        <tr>
+                                          <td align="left" valign="top">
+                                            <table cellspacing="0" cellpadding="0" style="width:100%">
+                                              <tbody>
+                                              <tr>
+                                                <td class="responsive-td" valign="top" style="width: 100%;">
+                                                  
+
+
+
+<link rel="stylesheet" href="https://static.asda.com/fonts/asda/stylesheet.css">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
+<style>
+/* DARK MODE TEXT FOR APPLE */
+@media (prefers-color-scheme: dark) {
+.dm_darkbg
+  { 
+    background-color: #000000 !important;
+    color: #ffffff !important; }
+  
+ /* DARK MODE GO TO ACCOUNT BUTTON FOR APPLE */  
+.dm-btn {
+   color:#ffffff !important;
+   border-color:#ffffff !important;
+  } 
+/* DARK MODE TEXT COLOR FOR VIEW YOUR ORDER BUTTON FOR APPLE */  
+.Order_text_Black {
+   color:#000000 !important;
+  -webkit-text-fill-color:#000000 !important;
+  }  
+} 
+  
+  
+ </style><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
+<style>
+/* DARK MODE TEXT FOR APPLE */
+@media (prefers-color-scheme: dark) {
+.dm_darkbg
+  { 
+    background-color: #000000 !important;
+    color: #ffffff !important; }
+  
+ /* DARK MODE GO TO ACCOUNT BUTTON FOR APPLE */  
+.dm-btn {
+   color:#ffffff !important;
+   border-color:#ffffff !important;
+  } 
+/* DARK MODE TEXT COLOR FOR VIEW YOUR ORDER BUTTON FOR APPLE */  
+.Order_text_Black {
+   color:#000000 !important;
+  -webkit-text-fill-color:#000000 !important;
+  }  
+}
+ </style> 
+<!-- Outer Wrapper Table -->
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="dm_darkbg" style="padding-Top:16px;padding-left:16px;padding-right:16px;">
+  <tr>
+    <td align="center">
+            <!--[if mso]>       <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" align="center">         <tr>           <td>       <![endif]-->
+      
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width:600px; min-width:256px; margin:0 auto; border-bottom:1px;margin-bottom:24px;">
+        
+        <!-- View in Browser -->
+        <tr>
+          <td align="left" style="font-family:'Asda Text', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight:400; font-size:12px; line-height:18px; letter-spacing:-0.1px; color:#000000; padding-bottom:24px;">
+            <a href="https://emea01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.emails.asda.com%2F%3Fqs%3DABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5a9GeWXmh068iU_p6ebworTLHwbRDNWqLhv8mcGWjS8bunJ4jh7Dw1y2dZSizK0AxFTDngP-GIajmabkE_bbz_DF6NrjfAu4tMKEnU&amp;data=05%7C02%7C%7C45e75f8f027b475966ea08dee635101a%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C639201312772049596%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=1kpoBVxeSZ41NoF11k5M3qcFMBFPRobgVydPMotNBZg%3D&amp;reserved=0" originalsrc="https://click.emails.asda.com/?qs=ABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5a9GeWXmh068iU_p6ebworTLHwbRDNWqLhv8mcGWjS8bunJ4jh7Dw1y2dZSizK0AxFTDngP-GIajmabkE_bbz_DF6NrjfAu4tMKEnU" target="_blank" class="dm_darkbg" style="color:#000000;">View this email in a browser</a>
+          </td>
+        </tr>
+
+        <!-- Logo Section -->
+        <tr>
+          <td align="left">
+            <a href="https://emea01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.emails.asda.com%2F%3Fqs%3DABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5bcswr1UOfuAlbG3LZ8R_9wESdg8KVA9Zp343VnaP3arpxCrpytu6pfa5hI97L2oC_qlWA5SdqefxV1GH66cnRbDWXDMKS8zG0p7gk&amp;data=05%7C02%7C%7C45e75f8f027b475966ea08dee635101a%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C639201312772114928%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=ck9rynVoMZ75cmQTnBSYD8wPgTpDc1aeQmjg8EJIl3Y%3D&amp;reserved=0" originalsrc="https://click.emails.asda.com/?qs=ABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5bcswr1UOfuAlbG3LZ8R_9wESdg8KVA9Zp343VnaP3arpxCrpytu6pfa5hI97L2oC_qlWA5SdqefxV1GH66cnRbDWXDMKS8zG0p7gk" target="_blank">
+              <img src="https://image.emails.asda.com/lib/fe3611737364047c7d1472/m/1/e9d8222e-e2c2-4fed-85f1-d72c470ac9f7.png" alt="Asda logo" width="114" height="60" style="display:block; max-width:100%; height:auto;">
+            </a>
+          </td>
+        </tr>
+
+      </table>
+
+      <!--[if mso]>           </td>         </tr>       </table>       <![endif]-->
+      
+    </td>
+  </tr>
+</table>
+</td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- Outer Wrapper Table -->
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" class="dm_darkbg" style="padding-left:16px; padding-right:16px;">
+  <tr>
+    <td align="center">
+      
+        <!--[if (gte mso 9)|(IE)]>       <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">         <tr>           <td>       <![endif]-->
+
+      <!-- Container Table -->
+
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px; width:100%; border-collapse:collapse; font-family:'ASDA Text','Helvetica Neue', Helvetica, Arial, sans-serif;">
+
+        <!-- Title -->
+        <tr>
+          <td class="dm_darkbg" style="font-weight:700; font-size:24px; line-height:32px; letter-spacing:-0.1px; color:#002E3B; padding-bottom:24px;">
+            Your order
+          </td>
+        </tr>
+
+        <!-- Order Number -->
+        <tr>
+          <td>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr valign="top">
+                <td width="40" style="padding-top:2px;">
+                  <img src="https://image.emails.asda.com/lib/fe3611737364047c7d1472/m/1/f4886fd3-08ac-4071-bda3-8b4089344bc7.png" alt="Number Icon" width="24" height="24" style="display:block; border:0; outline:none; text-decoration:none; width:24px; height:auto; font-size:14px;">
+                </td>
+                <td>
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td class="dm_darkbg" style="font-weight:700; font-size:16px; line-height:24px; color:#002E3B;">
+                        Order number:
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="dm_darkbg" style="font-size:16px; line-height:24px; color:#002E3B;">
+                        70000065239959
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Spacer -->
+        <tr>
+          <td height="10" style="font-size:0; line-height:0; mso-line-height-rule:exactly;"></td>
+        </tr>
+
+<!-- Delivery Slot -->
+        <tr>
+          <td>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr valign="top">
+                <td width="40" style="padding-top:2px;">
+                  <img src="https://image.emails.asda.com/lib/fe3611737364047c7d1472/m/1/b6b2fb75-31d3-4e85-a982-f2f5715052fd.png" alt="Slot Icon" width="24" height="24" style="display:block; border:0; outline:none; text-decoration:none; width:24px; height:auto; font-size:14px;">
+                </td>
+                <td>
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td class="dm_darkbg" style="font-weight:700; font-size:16px; line-height:24px; color:#002E3B;">
+                        Delivery slot:
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="dm_darkbg" style="font-size:16px; line-height:24px; color:#002E3B;">
+                        Monday, 20 July,
+                        08:00 AM - 09:00 AM
+ 
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        
+
+        <!-- Spacer -->
+        <tr>
+          <td height="10" style="font-size:0; line-height:0; mso-line-height-rule:exactly;"></td>
+        </tr>
+
+        <!-- Fulfillment Section -->
+        <!-- Delivery Address -->
+        <tr>
+          <td>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr valign="top">
+                <td width="40" style="padding-top:2px;">
+                  <img src="https://image.emails.asda.com/lib/fe3611737364047c7d1472/m/1/7b3cb83a-af0b-42ac-b478-7df594d73d55.png" alt="Location Icon" width="24" height="24" style="display:block; border:0; outline:none; text-decoration:none; width:24px; height:auto; font-size:14px;">
+                </td>
+                <td>
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td class="dm_darkbg" style="font-weight:700; font-size:16px; line-height:24px; color:#002E3B;">
+                        Delivery address:
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="dm_darkbg" style="font-size:16px; line-height:24px; color:#002E3B;">
+                        40 Albany Road, Coventry, GB, CV56JU
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        
+
+        <!-- Spacer -->
+        <tr>
+          <td height="10" style="font-size:0; line-height:0; mso-line-height-rule:exactly;"></td>
+        </tr>
+
+        <!-- Order Total -->
+        <tr>
+          <td>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr valign="top">
+                <td width="40" style="padding-top:2px;">
+                  <img src="https://image.emails.asda.com/lib/fe3611737364047c7d1472/m/1/e3bd0f7e-8ce2-420c-9e10-acf06c6164af.png" alt="Pounds Icon" width="24" height="24" style="display:block; border:0; outline:none; text-decoration:none; width:24px; height:auto; font-size:14px;">
+                </td>
+                <td>
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td class="dm_darkbg" style="font-weight:700; font-size:16px; line-height:24px; color:#002E3B;">
+                        Order total:
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="dm_darkbg" style="font-size:16px; line-height:24px; color:#002E3B;">
+                        £108.55
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Spacer -->
+        <tr>
+          <td height="24" style="font-size:0; line-height:0; mso-line-height-rule:exactly;"></td>
+        </tr>
+
+        <!-- Divider -->
+        <tr>
+          <td>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="border-top:1px solid #CCCCCC; line-height:0px; font-size:0px;mso-line-height-rule:exactly;"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!-- Spacer -->
+        <tr>
+          <td height="24" style="font-size:0; line-height:0; mso-line-height-rule:exactly;"></td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+  <!-- End Container Table -->
+
+      <!--[if (gte mso 9)|(IE)]>           </td>         </tr>       </table>       <![endif]--> 
+</td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- OUTER WRAPPER -->
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff" class="dm_darkbg" style="padding-left:16px;padding-right:16px;">  
+  <tr>
+    <td align="center">
+
+      <!-- MAIN CONTAINER -->
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:600px; border-collapse:collapse; font-family:ASDA Text;Arial, Helvetica, sans-serif;">
+
+  
+
+        <!-- Section Title -->
+        <tr>
+          <td class="dm_darkbg" colspan="3" style="font-family:Asda Text, Arial,Helvetica Neue, Helvetica, sans-serif;font-size:20px; font-weight:700; line-height:24px; color:#002E3B;">
+            Your items
+          </td>
+        </tr>
+        <!-- Spacer -->
+  <tr>
+    <td height="16" style="font-size:0; line-height:0; mso-line-height-rule:exactly;"></td>
+  </tr>
+        <tr>
+          <td class="dm_darkbg" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              <span style="font-weight:700;">Fresh</span>
+            </span>
+          </td>
+        </tr>
+        <!-- Spacer -->
+  <tr>
+    <td height="12" style="font-size:0; line-height:0; mso-line-height-rule:exactly;"></td>
+  </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Garlic
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £0.47    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA 2 Garlic &amp; Coriander Naans
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £0.80    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Chicken Tikka Masala with Pilau Rice 400g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £1.94    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              Monster Energy Drink Ultra Zero Sugar 4 x 500ml
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £5.25    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              3x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Cola Zero 2 Litres
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £1.47    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Creamy &amp; Nutty Avocados
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £1.48    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              2x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Wafer Thin Honey Roast Ham 400g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £4.48    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Fluffy &amp; Golden Large Baking Potatoes 4 Pack
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £0.79    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              Lurpak Lighter Spreadable Blend of Butter and Rapeseed Oil 750g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £6.98    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Sweetcorn 1kg
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £1.73    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              2x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              Kleenex Supporting Mind - Single Cube Tissue Box
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £1.50    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              COOK by ASDA Cook Garlic Granules 115g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £1.50    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA British Milk Semi Skimmed 2 Pints
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £1.20    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              Birds Eye Petits Pois 545g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £2.64    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              McVitie's Penguin Original Biscuit Bar Multipack 7 x 24.6g, 172g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £1.00    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              Nivea Men Sensitive Shaving Gel 200ml
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £2.68    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA 12 Free Range Large Eggs
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £3.30    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              2x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              Mission Protein Tortilla Wraps 6 Pack
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £3.66    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Mixed Leaf Salad 200g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £1.17    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Tender Chicken Breast Fillets 1kg
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £6.94    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              2x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Tender Chicken Breast Fillets 600g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £9.04    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              Nestle Cheerios Honey Multigrain Hoop Breakfast Cereal 515g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £3.50    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Wellbeing Magnesium 375 Mg Tablets 1 a Day
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £2.25    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Baked Beans in a Rich Tomato Sauce 410g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £0.39    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA White Mushrooms 250g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £0.97    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              2x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              Alpro Soya No Sugar Long Life Dairy Free Drink 1L
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £3.56    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              Kingsmill 50/50 Bread Medium Sliced Loaf 800g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £1.30    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              The BAKERY at ASDA The Bakery 8 White Wraps 488g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £1.32    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA 6 Royal Gala Apples Fruit
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £1.67    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA 3 Crunchy &amp; Fragrant Brown Onions
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £0.95    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Lightly Salted Tortilla Chips 180g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £0.80    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA 16 Savoury Mini Eggs 192g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £1.96    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              2x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Natural Yogurt 500g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £2.16    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA 6 Bananas
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £0.94    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              3x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Loose Red Pepper
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £2.10    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Stuffed Crust BBQ Chicken &amp; Bacon Pizza 470g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £3.25    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Just Essentials by  10 Breaded Fishcakes 500g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £2.00    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              Old El Paso Refried Beans 435g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £2.30    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Beef &amp; Pork Mince 750g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £4.88    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Grated Carrot 150g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £0.43    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Mild &amp; Tender Baby Spinach 180g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £1.10    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              Napolina Tomato Puree 200g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £1.20    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              Echo Falls Merlot Red Wine 187ml
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £2.75    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Spaghetti 500g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £0.75    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Grated Parmigiano Reggiano 100g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £2.74    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Beef Stock Cubes 12 x 10g (120g)
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £1.08    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Vegetable Stock Cubes 12 x 10g (120g)
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £1.08    
+            </span>
+          </td>
+        </tr>
+
+    
+
+
+        <!-- Spacer -->
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        
+        <!-- Product Line -->
+        <tr>
+          <td class="dm_darkbg" width="30" align="left" valign="middle" style="font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              1x
+            </span>
+          </td>
+
+          <td class="dm_darkbg" align="left" valign="middle" style="padding:4px;font-family:Asda Text, Arial, Helvetica,Helvetica Neue, sans-serif; font-weight:400; font-size:16px; color:#002E3B; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              ASDA Peach Slices in Fruit Juice 411g
+            </span>
+
+            
+
+            
+          </td>
+
+          <td class="dm_darkbg" width="70" align="right" valign="middle" style="font-family:Asda Text, Arial, Helvetica, Helvetica Neue,sans-serif; font-weight:400;font-size:16px; color:#002E3B;">
+            <span style="line-height:24px; mso-line-height-rule:exactly;">
+              £1.10    
+            </span>
+          </td>
+        </tr>
+
+
+
+
+
+      </table>
+    </td>
+  </tr>
+
+  <!-- Spacer -->
+  <tr>
+    <td height="24" style="font-size:0; line-height:0; mso-line-height-rule:exactly;"></td>
+  </tr>
+
+  <!-- Divider -->
+  <tr>
+    <td>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="dm_darkbg" style="border-top:1px solid #CCCCCC; line-height:1px; mso-line-height-rule:exactly;"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- Spacer -->
+  <tr>
+    <td height="24" style="font-size:0; line-height:0; mso-line-height-rule:exactly;"></td>
+  </tr>
+
+</table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" class="dm_darkbg" style="padding-left:16px; padding-right:16px;">
+  <tr>
+    <td align="center">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+
+  <tr>
+    <td class="dm_darkbg" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; padding-bottom:24px; font-weight:700; font-size:16px; line-height:24px; color:#002E3B;">
+      Groceries total
+    </td>
+    <td class="dm_darkbg" align="right" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; font-weight:700; font-size:16px; line-height:24px; color:#002E3B;">
+      £108.55
+    </td>
+  </tr>
+
+
+
+
+<tr>
+    <td class="dm_darkbg" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; padding-bottom:4px; font-size:16px; line-height:24px; color:#002E3B;">
+      Pick &amp; pack*
+    </td>
+    <td class="dm_darkbg" align="right" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:16px; line-height:24px; color:#002E3B;">
+      £0.00
+    </td>
+  </tr>
+
+
+
+
+
+
+<tr>
+    <td class="dm_darkbg" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; padding-bottom:4px; font-size:16px; line-height:24px; color:#002E3B;">
+      Donate to charity
+    </td>
+    <td class="dm_darkbg" align="right" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:16px; line-height:24px; color:#002E3B;">
+      £0.00
+    </td>
+  </tr>
+
+
+
+  <!-- SAVINGS SPACER -->
+  <tr>
+    <td colspan="2" style="padding-bottom:22px;"></td>
+  </tr>
+
+</table>
+
+
+      
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+
+
+
+  <!-- TOTAL SAVINGS -->
+  <tr>
+    <td class="dm_darkbg" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; padding-bottom:4px; font-weight:700; font-size:16px; line-height:24px; color:#002E3B;">
+      Savings
+    </td>
+    <td class="dm_darkbg" align="right" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; font-weight:700; font-size:16px; line-height:24px; color:#002E3B;">
+      -£0.00
+    </td>
+  </tr>
+
+<tr>
+    <td class="dm_darkbg" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; padding-bottom:4px; font-size:16px; line-height:24px; color:#002E3B;">
+      Multibuy
+    </td>
+    <td class="dm_darkbg" align="right" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:16px; line-height:24px; color:#002E3B;">-
+      £0.00
+    </td>
+  </tr>
+
+
+
+
+<tr>
+    <td class="dm_darkbg" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; padding-bottom:4px; font-size:16px; line-height:24px; color:#002E3B;">
+      eVoucher savings
+    </td>
+    <td class="dm_darkbg" align="right" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:16px; line-height:24px; color:#002E3B;">
+      - £0.00
+    </td>
+  </tr>
+
+
+<tr>
+    <td class="dm_darkbg" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; padding-bottom:4px; font-size:16px; line-height:24px; color:#002E3B;">
+      Gift cards
+    </td>
+    <td class="dm_darkbg" align="right" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:16px; line-height:24px; color:#002E3B;">
+      - £0.00
+    </td>
+  </tr>
+
+
+
+  <tr>
+    <td class="dm_darkbg" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; padding-bottom:4px; font-size:16px; line-height:24px; color:#002E3B;">
+      Asda Rewards Voucher
+    </td>
+    <td class="dm_darkbg" align="right" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:16px; line-height:24px; color:#002E3B;">
+      -£0.00
+    </td>
+  </tr>
+
+
+
+  <tr>
+    <td class="dm_darkbg" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; padding-bottom:4px; font-size:16px; line-height:24px; color:#002E3B;">
+      Discounted for you Savings
+    </td>
+    <td class="dm_darkbg" align="right" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:16px; line-height:24px; color:#002E3B;">
+      -£0.00
+    </td>
+  </tr>
+
+
+
+  <tr>
+    <td class="dm_darkbg" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; padding-bottom:4px; font-size:16px; line-height:24px; color:#002E3B;">
+      Free sample Savings
+    </td>
+    <td class="dm_darkbg" align="right" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:16px; line-height:24px; color:#002E3B;">
+      -£0.00
+    </td>
+  </tr>
+
+
+  <!-- Spacer -->
+  <tr>
+    <td colspan="2" height="24" style="font-size:0; line-height:0; mso-line-height-rule:exactly;"></td>
+  </tr>
+
+</table>
+
+<!-- Order Total -->
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+
+          
+  <tr>
+    <td class="dm_darkbg" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:20px; font-weight:700; color:#002E3B;padding-bottom:24px;">
+      Order total
+    </td>
+    <td class="dm_darkbg" align="right" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:20px; font-weight:700; color:#002E3B;padding-bottom:24px;">
+      £108.55
+    </td>
+  </tr>
+ 
+
+  
+  <tr>
+    <td class="dm_darkbg" colspan="2" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:14px; line-height:21px; color:#002E3B;">
+      <strong>Total a little different than expected?</strong>
+      For items sold by weight, the exact price may vary depending on the weight of items available.      
+    </td>
+  </tr>
+</table>
+
+    </td>
+  </tr>
+<!-- Spacer -->
+<tr>
+          <td height="24" style="font-size:0; line-height:0; mso-line-height-rule:exactly;"></td>
+        </tr>
+
+<!-- Divider -->
+<tr>
+  <td>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td class="dm_darkbg" style="border-top:1px solid #CCCCCC; font-size:0; line-height:0;">
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+<!-- Spacer -->
+<tr>
+          <td height="24" style="font-size:0; line-height:0; mso-line-height-rule:exactly;"></td>
+        </tr>
+  
+</table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" class="dm_darkbg" style="padding-left:16px; padding-right:16px;">
+  <tr>
+    <td align="center">
+      <!-- PAYMENT DETAILS -->
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="dm_darkbg" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:24px; font-weight:700; color:#002E3B; padding-bottom:24px;">
+            Payment details
+          </td>
+        </tr>
+      </table>
+      <!-- Top Spacer -->
+      <!-- PAYMENT ROWS -->
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+        
+        <tr>
+          <td width="31" valign="top" style="padding-bottom:8px; padding-right:8px;">
+            <img src="https://image.emails.asda.com/lib/fe3611737364047c7d1472/m/1/833e6a57-816f-459b-aa1a-ebcbd77dfd7f.png" width="24" height="16" alt="" style="display:block; border:0; outline:none; text-decoration:none;">
+          </td>
+          <td class="dm_darkbg" valign="top" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:16px; line-height:24px; color:#002E3B;padding-bottom:8px;">
+            ************1277
+            
+          </td>
+          
+          <td class="dm_darkbg" align="right" valign="top" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:16px; line-height:24px; color:#002E3B;padding-bottom:8px;">
+          </td>
+        </tr>
+        
+      </table>
+      <!-- Gift Card Notice -->
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+         <tr>
+          <td>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+              <tr valign="top">
+                
+                <td style="vertical-align:top;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+                    
+                    <tr>
+                      <td class="dm_darkbg" style="font-weight:400;font-family: 'Asda Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px; line-height:24px; letter-spacing:-0.1px; color:#002E3B;">*Exact price depends on weight of available items</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+         <!-- Spacer -->
+  <tr>
+    <td height="4" style="font-size:0; line-height:0; mso-line-height-rule:exactly;">
+    </td>
+  </tr>
+        <tr>
+          <td>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+              <tr valign="top">
+                
+                <td style="vertical-align:top;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+                    
+                    <tr>
+                      <td class="dm_darkbg" style="font-weight:400;font-family: 'Asda Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px; line-height:24px; letter-spacing:-0.1px; color:#002E3B;">**Keep your gift card and eVoucher safe until your order arrives, in case you need a refund.</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+         <!-- Spacer -->
+  <tr>
+    <td height="4" style="font-size:0; line-height:0; mso-line-height-rule:exactly;">
+    </td>
+  </tr>
+         <tr>
+          <td>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+              <tr valign="top">
+                
+                <td style="vertical-align:top;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+                    
+                    <tr>
+                      <td class="dm_darkbg" style="font-weight:400;font-family: 'Asda Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px; line-height:24px; letter-spacing:-0.1px; color:#002E3B;">You can print this email from your account</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        
+      </table>
+       <!-- Spacer -->
+  </td></tr><tr>
+    <td height="24" style="font-size:0; line-height:0; mso-line-height-rule:exactly;">
+    </td>
+  </tr>
+      <!-- ================= BUTTON 1 ================= -->
+      <!-- BUTTON -->
+      <!--[if mso]> <tr> <td> <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="https://emea01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.asda.com%2Faccount%2Forders%2Fdetail%2F70000065239959&amp;data=05%7C02%7C%7C45e75f8f027b475966ea08dee635101a%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C639201312772177827%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=y1UOoYJT1awQ0hfkkKqIrR8v5ui1exGxpjHIWJnk3os%3D&amp;reserved=0" originalSrc="https://www.asda.com/account/orders/detail/70000065239959" style="height:52px; v-text-anchor:middle; width:288px;" arcsize="16%" strokecolor="#6DBA45" fillcolor="#6DBA45"> <w:anchorlock/> <center style="color:#002E3B; font-family:'ASDA Text','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:18px; font-weight:700;"> View order in your account </center> </v:roundrect> </td> </tr> <![endif]-->
+      <!--[if !mso]><!-- -->
+    
+  
+  <tr>
+    <td align="left">
+      <table role="presentation" width="288" cellpadding="0" cellspacing="0" border="0" class="Order_text_Black">
+        <tr>
+          <td bgcolor="#6DBA45" style="border-radius:8px; height:52px;">
+            <a href="https://emea01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.emails.asda.com%2F%3Fqs%3DABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5cF_5lhexLH1aMUMroZeRSOo2rQ-FVsiRE24jyR3xsBF4WOF7dyzmeSUgFtjz9E-Z5z_83Z_9Sn1K7KNWfl-fxjL_jhbJ1ZdSFAP-306PpkA&amp;data=05%7C02%7C%7C45e75f8f027b475966ea08dee635101a%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C639201312772241603%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=cuzjWg7HhtA8%2BwUSdxdPgSc9cY0E%2Buzz4yXmmWY9TnE%3D&amp;reserved=0" originalsrc="https://click.emails.asda.com/?qs=ABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5cF_5lhexLH1aMUMroZeRSOo2rQ-FVsiRE24jyR3xsBF4WOF7dyzmeSUgFtjz9E-Z5z_83Z_9Sn1K7KNWfl-fxjL_jhbJ1ZdSFAP-306PpkA" target="_blank" style="display:inline-block; width:100%;                                                                              text-align:center; padding:16px 0;                                                                              border-radius:8px;                                                                              font-family:'ASDA Text','Helvetica Neue',Helvetica,Arial,sans-serif;                                                                              font-size:18px; font-weight:700;                                                                              color:#002E3B; text-decoration:none;">
+              View order in your account
+            </a>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <!--<![endif]-->
+  <!-- ================= RETURNS ================= -->
+  <!-- Top Spacer -->
+  <tr>
+    <td height="24" style="font-size:0; line-height:0; mso-line-height-rule:exactly;">
+    </td>
+  </tr>
+  <!-- Divider -->
+  <tr>
+    <td>
+      <table class="dm_darkbg" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+        <tr>
+          <td class="dm_darkbg" style="border-top:1px solid #CCCCCC; font-size:1px; line-height:1px; mso-line-height-rule:exactly;">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <!-- Spacer -->
+  <tr>
+    <td height="24" style="font-size:0; line-height:0; mso-line-height-rule:exactly;">
+    </td>
+  </tr>
+  <!-- Heading -->
+  <tr>
+    <td class="dm_darkbg" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:20px; font-weight:700; color:#002E3B;">
+      Returns &amp; refunds
+    </td>
+  </tr>
+  <!-- Small Spacer -->
+  <tr>
+    <td height="12" style="font-size:0; line-height:0;">
+    </td>
+  </tr>
+  <!-- Body -->
+  <tr>
+    <td class="dm_darkbg" style="font-family:'Asda Text','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:14px; line-height:21px; color:#002E3B;">
+      If you’re not happy with an item after you’ve received your shopping, you can manage returns from
+      <span style="color:#005eb8; text-decoration:underline;"><a href="https://emea01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.emails.asda.com%2F%3Fqs%3DABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5dPdj0kqAdFAM0mCtCXx4li5TEW_ZqXilcGkE5AlP8abvu-iBA1jo_Q6NKSBVaxURkC34svV8Cicc6xvODyr7vNpgUgCJM4BxzPKL7TZtefQ&amp;data=05%7C02%7C%7C45e75f8f027b475966ea08dee635101a%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C639201312772303400%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=uBUhsVj4x%2F1r%2Bu4TSmhUW9OCuXjYmMDtF4d6S9Xw1z4%3D&amp;reserved=0" originalsrc="https://click.emails.asda.com/?qs=ABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5dPdj0kqAdFAM0mCtCXx4li5TEW_ZqXilcGkE5AlP8abvu-iBA1jo_Q6NKSBVaxURkC34svV8Cicc6xvODyr7vNpgUgCJM4BxzPKL7TZtefQ" target="_blank" style="color:#0073B1;text-decoration:underline;">your orders</a></span>
+      page in your account.
+    </td>
+  </tr>
+  <!-- Bottom Spacer -->
+  <tr>
+    <td height="24" style="font-size:0; line-height:0; mso-line-height-rule:exactly;">
+    </td>
+  </tr>
+  <!-- Bottom Divider -->
+  <tr>
+    <td>
+      <table class="dm_darkbg" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+        <tr>
+          <td class="dm_darkbg" style="border-top:1px solid #CCCCCC; font-size:1px; line-height:1px; mso-line-height-rule:exactly;">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <!-- Final Spacer -->
+  <tr>
+    <td height="32" style="font-size:0; line-height:0; mso-line-height-rule:exactly;">
+    </td>
+  </tr>
+</table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- OUTER WRAPPER (Full width) -->
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="dm_darkbg" style="background-color:#ffffff;padding-left:16px;padding-right:16px;">
+  <tr>
+    <td align="center">
+
+      <!-- FIXED WIDTH MAIN CONTAINER -->
+      <table role="presentation" width="600" border="0" cellspacing="0" cellpadding="0" align="center" style="width:600px; border-bottom:1px; margin-bottom:10px; font-family:'Asda Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;" class="container">
+        
+        <!-- Text Block -->
+        <tr>
+          <td style="padding-bottom:24px;">
+            <table role="presentation" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td class="dm_darkbg" style="font-family:'Asda Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px; line-height:24px; color:#002E3B;letter-spacing: -0.1px;font-weight: 400;">
+                  Thanks,
+                </td>
+              </tr>
+              <tr>
+                <td class="dm_darkbg" style="font-family:'Asda Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 24px; line-height: 32px; letter-spacing: -1.1px; color: #002E3B; font-weight: 700; padding-top: 12px;">
+                  Asda
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Logos section -->
+        <tr>
+          <td style="padding-bottom:32px;">
+            <table role="presentation" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <!-- Logo 1 -->
+                <td width="123" style="padding-right:16px;">
+                  <a href="https://emea01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.emails.asda.com%2F%3Fqs%3DABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5eL6Cq347MxnGoEhnweQFLZhkgPam5mFE69kEX2HRFg3mpP-ZwZrAfhhmhDKyYR6bdWVCWNCyn5DM_2V5Ff3OlZU4ikFMHvyfH1X9S&amp;data=05%7C02%7C%7C45e75f8f027b475966ea08dee635101a%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C639201312772360615%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=SnRP%2B2BlwBIO%2F03UrY3xeu7OWP7CTE6SnpGYNoEvRR0%3D&amp;reserved=0" originalsrc="https://click.emails.asda.com/?qs=ABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5eL6Cq347MxnGoEhnweQFLZhkgPam5mFE69kEX2HRFg3mpP-ZwZrAfhhmhDKyYR6bdWVCWNCyn5DM_2V5Ff3OlZU4ikFMHvyfH1X9S" target="_blank">
+                    <img src="https://image.emails.asda.com/lib/fe3611737364047c7d1472/m/1/58c13369-b9b6-45dc-8455-66cb628cad1e.png" width="123" height="75" alt="Asda Price Icon" style="display:block; border:0; height:auto;">
+                  </a>
+                </td>
+
+                <!-- Logo 2 -->
+                <td width="131.94">
+                  <a href="https://emea01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.emails.asda.com%2F%3Fqs%3DABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5fzgWxXvFRAgZUi10yuyeihthwNaoVavaz8zo1SKtIC5KymqN7BoOhkIU_EK5kduPUNYVqG026ZFQDHnAIGoPjTpTDV9LO-Mfd2S4D&amp;data=05%7C02%7C%7C45e75f8f027b475966ea08dee635101a%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C639201312772407001%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=ILAZnDDM%2FTvsyxVpcAvhczg%2FDAU5yF1c0x0MqaRzXd8%3D&amp;reserved=0" originalsrc="https://click.emails.asda.com/?qs=ABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5fzgWxXvFRAgZUi10yuyeihthwNaoVavaz8zo1SKtIC5KymqN7BoOhkIU_EK5kduPUNYVqG026ZFQDHnAIGoPjTpTDV9LO-Mfd2S4D" target="_blank">
+                    <img src="https://image.emails.asda.com/lib/fe3611737364047c7d1472/m/1/e8937f69-ebf9-439c-96d8-0e8e3f375c03.png" width="131.94" height="69" alt="Roll Back Icon" style="display:block; border:0; height:auto;">
+                  </a>
+                </td>
+
+              </tr>
+            </table>
+          </td>
+        </tr>
+<tr>
+            <td class="dm_darkbg" style="margin:0 0 16px 0;font-family:'Asda Text', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; line-height:24px; letter-spacing:-0.1px; color:#002E3B;"> <span style="font-weight:700;">Need some help?</span><br> Please visit our <a href="https://emea01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.emails.asda.com%2F%3Fqs%3DABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5gr8ic-x1k5r65OC3Y98Tvb1g3aE1k60R7b93FZA1LpkoOrYf5fijh-lppTnHtfGCsLJq34cFpht3aAFEQ25prhYNobmKLXcEd9L8GlvgaKQ&amp;data=05%7C02%7C%7C45e75f8f027b475966ea08dee635101a%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C639201312772521087%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=iwBZkC7YdkQTTgt%2B1STvAAUQPI1Tznn%2BXGZXCA5r3oA%3D&amp;reserved=0" originalsrc="https://click.emails.asda.com/?qs=ABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5gr8ic-x1k5r65OC3Y98Tvb1g3aE1k60R7b93FZA1LpkoOrYf5fijh-lppTnHtfGCsLJq34cFpht3aAFEQ25prhYNobmKLXcEd9L8GlvgaKQ" target="_blank" style="color: #005eb8; text-decoration: none;"><u>Help Centre</u></a>  to get support
+              </td></tr>
+      </table>
+      <!-- END FIXED WIDTH MAIN CONTAINER -->
+       <!-- Spacer -->
+  </td></tr><tr>
+    <td height="32" style="font-size:0; line-height:0; mso-line-height-rule:exactly;"> 
+    </td>
+  </tr> 
+    
+  
+</table>
+</td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+
+
+
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#F6F6F6" class="dm_darkbg" style="padding-top:32px;padding-bottom:32px;padding-left:24px;padding-right:24px;">
+  <tr>
+    <td align="center">
+
+      <!--[if mso]> <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#F6F6F6" style="width:100%!important;"> <tr> <td align="center"> <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" bgcolor="#F6F6F6" style="width:600px!important;"> <tr><td> <![endif]-->
+
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;background-color:#F6F6F6;" class="dm_darkbg">
+        <tr>
+          <td>
+            <!-- Top Section -->
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="padding-bottom:16px; background-color:#F6F6F6;" class="dm_darkbg">
+              <tr>
+                <td class="dm_darkbg" style="font-family:'Asda Text', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:14px; line-height:20px; color:#002E3B;font-weight: 400;">
+                  <p class="dm_darkbg" style="margin:0 0 10px 0;">Please do not reply to this email.</p>
+                  <p class="dm_darkbg" style="margin:0 0 10px 0;">If you'd like to get in touch, please call our customer services team on 
+                    <span class="dm_darkbg" style="text-decoration:underline; color:#005eb8;"><a href="tel:0330 053 0111" target="_blank" style="color: #005eb8; text-decoration: none;"><u><span style="font-weight:700;">0330 053 0111</span></u></a></span>
+                  </p>
+                  <p class="dm_darkbg" style="margin:0 0 10px 0;">This is a service message from Asda Stores Ltd, Registered in England No. 464677, Registered Office: Asda House, Southbank, Great Wilson Street, Leeds LS11 5AD</p>
+                  <p class="dm_darkbg" style="margin:0 0 10px 0;">This email and any files transmitted with it are confidential and intended solely for the individual or entity to whom they are addressed. If you have received this email in error please accept our apologies &amp; destroy it immediately.</p>
+                </td>
+              </tr>
+            </table>
+<!-- Divider -->
+        </td></tr><tr>
+          <td>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td class="dm_darkbg" style="border-top:1px solid #CCCCCC; line-height:1px; mso-line-height-rule:exactly;"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+            <!-- Bottom Section -->
+            </table><table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:24px;background-color:#F6F6F6;" class="dm_darkbg">
+              <tr>
+                <td class="dm_darkbg" style="padding:0; vertical-align:top;">
+                  <p class="dm_darkbg" style="font-family:'Asda Text', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:14px; line-height:20px; color:#002E3B; padding-bottom:8px; text-align:left;font-weight:400;">
+                    © ASDA 2026
+                  </p>
+                  <p class="dm_darkbg" style="font-family:'Asda Text', 'Helvetica Neue',Helvetica, Arial, sans-serif; font-size:14px; line-height:20px; padding-bottom:8px; text-align:left;font-weight:400;">
+                    <a href="https://emea01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.emails.asda.com%2F%3Fqs%3DABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5hHqS731e-YJhLCszaYE1q5wb7Sv_uuEWNMtUqzgwQKkvpUoPN1_w0qLVn_pyBQm4sHDftJ8JE_YoQtdUSQ-O93_f1iHatzUG5rKf40vo1KA&amp;data=05%7C02%7C%7C45e75f8f027b475966ea08dee635101a%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C639201312772598377%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=qsf1b1IUsyOTvl3BevMgFiLNHSkU6Xt68ruwqJV4nIU%3D&amp;reserved=0" originalsrc="https://click.emails.asda.com/?qs=ABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5hHqS731e-YJhLCszaYE1q5wb7Sv_uuEWNMtUqzgwQKkvpUoPN1_w0qLVn_pyBQm4sHDftJ8JE_YoQtdUSQ-O93_f1iHatzUG5rKf40vo1KA" class="dm_darkbg" target="_blank" style="color:#005eb8;">Terms &amp; Conditions</a>
+                  </p>
+                  <p style="font-family:'Asda Text', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:14px; line-height:20px; padding-bottom:8px; text-align:left; font-weight:400;">
+                    <a href="https://emea01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.emails.asda.com%2F%3Fqs%3DABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5iP4SggFeHKW9kxRordxlyFDJgOzP5y6liEZ-yua-LSMbMQ7_CipGaPaNTHoG_mnAjLFRmcDPaKmhGagv9tXqH6AjHTtMIhtlEBSRu&amp;data=05%7C02%7C%7C45e75f8f027b475966ea08dee635101a%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C639201312772690484%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=kXCSD47i9w3Kig2REraeVW6VDYDMDlLsZXGSTOdCw1U%3D&amp;reserved=0" originalsrc="https://click.emails.asda.com/?qs=ABB7InYiOjEsImQiOjQ5NDN9ADMAAAAAAI8S7e5iP4SggFeHKW9kxRordxlyFDJgOzP5y6liEZ-yua-LSMbMQ7_CipGaPaNTHoG_mnAjLFRmcDPaKmhGagv9tXqH6AjHTtMIhtlEBSRu" target="_blank" class="dm_darkbg" style="color:#005eb8;">Privacy &amp; Cookies Policy</a>
+                  </p>
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+      </table>
+<!--[if mso]> </td></tr> </table> </td></tr> </table> <![endif]-->
+
+      
+    
+  
+
+</td></tr></table>
+              
+                                                </td>
+                                              </tr>
+                                              </tbody>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top">
+          
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+--mAqfi88EUbLs=_?:--

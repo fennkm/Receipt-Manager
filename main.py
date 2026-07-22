@@ -42,73 +42,34 @@ def extractItems(filepath) -> list[tuple[str, int, int]]:
 
     items = []
 
-    line = ""
-
-    # Jump to start of xml portion
-    while "!DOCTYPE" not in line:
-        line = file.readline()
-
-    # Order changes loop
+    # Loop through items
     while True:
-        # Jump to next order change or start of receipt
-        while ("We Sent" not in line) and ("Your Order" not in line):
+        line = ""
+        # Jump to next item
+        while ("<!-- Product Line -->" not in line):
             line = file.readline()
+            # Break if end of receipt
+            if ("<!-- Bottom Spacer -->" in line): 
+                file.close()
+                return items
 
-        # If reached start of receipt, exit loop
-        if "Your Order" in line: break
+        # Skip to & extract item quantity
+        skipTags(file, 3)
+        itemQuantity = extractQuantity(file)
 
         # Skip to & extract item name
-        skipTags(file, 2)
+        skipTags(file, 4)
         itemName = extractText(file)
 
-        # Get quantity from item name
-        itemQuantity = int(itemName[0])
-        itemName = itemName[4:]
-
+        # Truncate long item names
         if len(itemName) > 60:
             itemName = itemName[:60] + "..."
 
         # Skip to & extract item price
-        line = file.readline()
-        skipTags(file, 1)
+        skipTags(file, 4)
         itemPrice = extractPrice(file)
 
         items.append((itemName, itemQuantity, itemPrice))
-
-    # Jump to end of receipt header
-    while "price" not in line.lower():
-        line = file.readline()
-
-    # Jump to start of items
-    skipTags(file, 1)
-
-    # Receipt loop
-    while True:
-        # Skip to and extract item name
-        skipTags(file, 2)
-        itemName = extractText(file)
-
-        # If we reach the end of the receipt, stop
-        if itemName == "": break
-
-        if len(itemName) > 60:
-            itemName = itemName[:60] + "..."
-
-        # Skip to and extract item quantity
-        skipTags(file, 2)
-        itemQuantity = extractNum(file)
-        
-        # Skip to and extract item quantity
-        skipTags(file, 2)
-        itemPrice = extractPrice(file)
-
-        items.append((itemName, itemQuantity, itemPrice))
-
-        skipTags(file, 2)
-
-    file.close()
-
-    return items
 
 # Moves file pointer to the end of the next n tags
 def skipTags(file, n) -> None:
@@ -131,12 +92,12 @@ def extractText(file) -> str:
     return text.replace("&amp;", "&").lstrip().rstrip()
 
 # Extracts text up until the start of the next tag, then strips and formats as price
-def extractNum(file) -> int:
+def extractQuantity(file) -> int:
     # Extract number as string
     num = extractText(file)
 
     # Convert to integer
-    return int(num)
+    return int(num.replace("x", ""))
 
 # Extracts text up until the start of the next tag, then strips and formats as price
 def extractPrice(file) -> int:
